@@ -9,10 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.munbonecci.myresume.components.CustomSpacer
-import com.munbonecci.myresume.components.ProfileImage
-import com.munbonecci.myresume.components.ProfileInfo
-import com.munbonecci.myresume.components.SpacerDimens
+import com.munbonecci.myresume.components.*
 import com.munbonecci.myresume.ui.theme.MyResumeTheme
 
 @Composable
@@ -30,6 +27,13 @@ fun HomeScreen() {
             spacerDimens = SpacerDimens.MEDIUM
         )
         ProfileInfo()
+        CustomSpacer(
+            spacerDimens = SpacerDimens.MEDIUM
+        )
+        ContactInfo()
+        CustomSpacer(
+            spacerDimens = SpacerDimens.MEDIUM
+        )
     }
 }
 
