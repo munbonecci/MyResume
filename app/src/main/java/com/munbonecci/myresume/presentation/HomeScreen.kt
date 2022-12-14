@@ -30,6 +30,10 @@ fun HomeScreen() {
         CustomSpacer(
             spacerDimens = SpacerDimens.MEDIUM
         )
+        About()
+        CustomSpacer(
+            spacerDimens = SpacerDimens.MEDIUM
+        )
         ContactInfo()
         CustomSpacer(
             spacerDimens = SpacerDimens.MEDIUM

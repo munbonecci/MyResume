@@ -16,4 +16,5 @@
     <string name="email_icon_content_description">Email Icon</string>
     <string name="phone_icon_content_description">Phone Icon</string>
     <string name="link_icon_content_description">URL Icon</string>
+    <string name="about_label">About</string>
 </resources>

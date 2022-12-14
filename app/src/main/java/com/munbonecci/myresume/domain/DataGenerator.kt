@@ -41,5 +41,11 @@ class DataGenerator(currentContext: Context) {
         const val EMAIL_TYPE = 1
         const val PHONE_TYPE = 2
         const val WEB_VIEW_TYPE = 3
+
+        const val ABOUT_INFO =
+            "Experienced Android Developer with a demonstrated history of working in e-commerce," +
+                    "electrical and electronic manufacturing industry. Skilled in kotlin, Java, Firebase (Analytics, Realtime database, Crashlytics, Remote config)," +
+                    "Retrofit, Coroutines, Git, MVVM, MVP, Clean Arch. and Software Development. Strong engineering professional with a Engineer's degree focused" +
+                    "in Computer Systems Engineering from Instituto Tecnológico Superior de Zapopan."
     }
 }
