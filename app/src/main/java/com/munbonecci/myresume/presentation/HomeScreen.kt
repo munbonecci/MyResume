@@ -10,10 +10,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.munbonecci.myresume.components.*
+import com.munbonecci.myresume.data.model.CategoryData
 import com.munbonecci.myresume.ui.theme.MyResumeTheme
 
 @Composable
-fun HomeScreen() {
+fun HomeScreen(
+    onCategoryButtonClicked: (CategoryData) -> Unit
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -34,7 +37,7 @@ fun HomeScreen() {
         CustomSpacer(
             spacerDimens = SpacerDimens.MEDIUM
         )
-        ProfileCategories()
+        ProfileCategories(onCategoryButtonClicked)
         CustomSpacer(
             spacerDimens = SpacerDimens.MEDIUM
         )
@@ -47,7 +50,7 @@ fun HomeScreen() {
 fun HomeScreenPreview() {
     MyResumeTheme {
         Surface {
-            HomeScreen()
+            HomeScreen(onCategoryButtonClicked = {})
         }
     }
 }

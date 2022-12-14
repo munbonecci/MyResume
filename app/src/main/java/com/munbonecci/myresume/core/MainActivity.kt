@@ -1,4 +1,4 @@
-package com.munbonecci.myresume
+package com.munbonecci.myresume.core
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -9,6 +9,8 @@ import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.rememberNavController
+import com.munbonecci.myresume.core.navigation.NavigationGraph
 import com.munbonecci.myresume.presentation.HomeScreen
 import com.munbonecci.myresume.ui.theme.MyResumeTheme
 
@@ -21,7 +23,8 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    HomeScreen()
+                    val navController = rememberNavController()
+                    NavigationGraph(navController = navController)
                 }
             }
         }
@@ -32,6 +35,6 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun DefaultPreview() {
     MyResumeTheme {
-        HomeScreen()
+        HomeScreen(onCategoryButtonClicked = {})
     }
 }

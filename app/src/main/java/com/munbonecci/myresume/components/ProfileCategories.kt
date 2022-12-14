@@ -25,9 +25,8 @@ import com.munbonecci.myresume.data.model.CategoryData
 import com.munbonecci.myresume.domain.DataGenerator
 import com.munbonecci.myresume.ui.theme.dimen_20dp
 
-
 @Composable
-fun ProfileCategories() {
+fun ProfileCategories(onCategoryButtonClicked: (CategoryData) -> Unit) {
     val categoryInfoList = DataGenerator(LocalContext.current).categoryInfoDataList
 
     LazyColumn(
@@ -37,7 +36,7 @@ fun ProfileCategories() {
     ) {
         items(categoryInfoList) { categoryInfo ->
             ProfileCategoryItem(categoryInfo, onItemClick = { data ->
-
+                onCategoryButtonClicked.invoke(data)
             })
         }
     }
@@ -104,5 +103,5 @@ fun ProfileCategoryItem(categoryData: CategoryData, onItemClick: (CategoryData) 
 @Preview
 @Composable
 fun PreviewProfileCategories() {
-    ProfileCategories()
+    ProfileCategories(onCategoryButtonClicked = {})
 }
