@@ -34,7 +34,7 @@ fun HomeScreen() {
         CustomSpacer(
             spacerDimens = SpacerDimens.MEDIUM
         )
-        ContactInfo()
+        ProfileCategories()
         CustomSpacer(
             spacerDimens = SpacerDimens.MEDIUM
         )

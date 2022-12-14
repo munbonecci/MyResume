@@ -4,7 +4,6 @@
     <string name="profile_image_content_description">Edmundo Bonequi Levine profile image</string>
     <string name="profile_headline">Software Android Engineer</string>
     <string name="profile_pronouns">(He/Him)</string>
-    <string name="contact_info_label">Contact Info</string>
     <string name="contact_email_label">Email:</string>
     <string name="contact_email">munbonecci@gmail.com</string>
     <string name="contact_linkedin_profile_label">LinkedIn profile:</string>
@@ -17,4 +16,14 @@
     <string name="phone_icon_content_description">Phone Icon</string>
     <string name="link_icon_content_description">URL Icon</string>
     <string name="about_label">About</string>
+    <string name="category_contact_info_label">Contact Info</string>
+    <string name="category_experience_label">Experience</string>
+    <string name="category_education_label">Education</string>
+    <string name="category_languages_label">Languages</string>
+    <string name="category_skills_label">Skills</string>
+    <string name="category_contact_info_content_description">Contact Info Category</string>
+    <string name="category_experience_content_description">Experience Category</string>
+    <string name="category_education_content_description">Education Category</string>
+    <string name="category_languages_content_description">Languages Category</string>
+    <string name="category_skills_content_description">Skills Category</string>
 </resources>

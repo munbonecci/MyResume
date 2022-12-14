@@ -40,7 +40,7 @@ fun ContactInfo() {
                 color = MaterialTheme.colors.primary,
                 fontSize = 20.sp,
                 style = MaterialTheme.typography.h4,
-                text = stringResource(id = R.string.contact_info_label)
+                text = stringResource(id = R.string.category_contact_info_label)
             )
         }
         items(contactInfoList) { contactInfo ->
