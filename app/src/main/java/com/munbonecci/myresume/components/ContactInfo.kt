@@ -29,28 +29,33 @@ import com.munbonecci.myresume.ui.theme.dimen_20dp
 @Composable
 fun ContactInfo() {
     val contactInfoList = DataGenerator(LocalContext.current).contactInfoDataList
-
-    LazyColumn(
-        modifier = Modifier.padding(5.dp),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.Start
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp)
     ) {
-        item {
-            Text(
-                color = MaterialTheme.colors.primary,
-                fontSize = 20.sp,
-                style = MaterialTheme.typography.h4,
-                text = stringResource(id = R.string.category_contact_info_label)
-            )
-        }
-        items(contactInfoList) { contactInfo ->
-            ContactInfoItem(contactInfo, onItemClick = { data ->
-                when (data.type) {
-                    DataGenerator.EMAIL_TYPE -> {}
-                    DataGenerator.PHONE_TYPE -> {}
-                    DataGenerator.WEB_VIEW_TYPE -> {}
-                }
-            })
+        LazyColumn(
+            modifier = Modifier.padding(5.dp),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.Start
+        ) {
+            item {
+                Text(
+                    color = MaterialTheme.colors.primary,
+                    fontSize = 20.sp,
+                    style = MaterialTheme.typography.h4,
+                    text = stringResource(id = R.string.category_contact_info_label)
+                )
+            }
+            items(contactInfoList) { contactInfo ->
+                ContactInfoItem(contactInfo, onItemClick = { data ->
+                    when (data.type) {
+                        DataGenerator.EMAIL_TYPE -> {}
+                        DataGenerator.PHONE_TYPE -> {}
+                        DataGenerator.WEB_VIEW_TYPE -> {}
+                    }
+                })
+            }
         }
     }
 }

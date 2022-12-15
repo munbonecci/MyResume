@@ -7,10 +7,12 @@ import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import com.munbonecci.myresume.components.AppBar
+import com.munbonecci.myresume.components.ContactInfo
+import com.munbonecci.myresume.domain.DataGenerator
 import com.munbonecci.myresume.ui.theme.MyResumeTheme
 
 @Composable
-fun CategoryDetailScreen(onBackButtonClicked: () -> Unit) {
+fun CategoryDetailScreen(onBackButtonClicked: () -> Unit, type: String?) {
     val currentScreen = "Category"
 
     Scaffold(
@@ -23,6 +25,13 @@ fun CategoryDetailScreen(onBackButtonClicked: () -> Unit) {
         }
     ) { innerPadding ->
         Log.d("", innerPadding.toString())
+        type?.let {
+            when (it.toIntOrNull() ?: 0) {
+                DataGenerator.CATEGORY_CONTACT_INFO -> {
+                    ContactInfo()
+                }
+            }
+        }
     }
 }
 
@@ -32,7 +41,10 @@ fun CategoryDetailScreen(onBackButtonClicked: () -> Unit) {
 fun CategoryDetailScreenPreview() {
     MyResumeTheme {
         Surface {
-            CategoryDetailScreen(onBackButtonClicked = {})
+            CategoryDetailScreen(
+                onBackButtonClicked = {},
+                ""
+            )
         }
     }
 }
