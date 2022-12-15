@@ -27,4 +27,5 @@
     <string name="category_languages_content_description">Languages Category</string>
     <string name="category_skills_content_description">Skills Category</string>
     <string name="back_button">Back</string>
+    <string name="not_email_app_found_error_msg">"There are no email client installed on your device."</string>
 </resources>
