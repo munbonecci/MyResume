@@ -63,13 +63,13 @@ fun ContactInfo() {
 @Composable
 fun ContactInfoItem(contactInfo: ContactInfoData, onItemClick: (ContactInfoData) -> Unit) {
     Column(modifier = Modifier
+        .padding(top = 16.dp)
         .fillMaxWidth()
         .clickable {
             onItemClick(contactInfo)
         }) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.padding(top = 16.dp)
         ) {
             Image(
                 painter = painterResource(id = contactInfo.icon),
