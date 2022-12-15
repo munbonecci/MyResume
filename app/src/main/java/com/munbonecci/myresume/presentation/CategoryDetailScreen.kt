@@ -12,13 +12,13 @@ import com.munbonecci.myresume.domain.DataGenerator
 import com.munbonecci.myresume.ui.theme.MyResumeTheme
 
 @Composable
-fun CategoryDetailScreen(onBackButtonClicked: () -> Unit, type: String?) {
+fun CategoryDetailScreen(onBackButtonClicked: () -> Unit, type: String?, name: String?) {
     val currentScreen = "Category"
 
     Scaffold(
         topBar = {
             AppBar(
-                currentScreen = currentScreen,
+                currentScreen = name ?: currentScreen,
                 canNavigateBack = true,
                 navigateUp = { onBackButtonClicked.invoke() }
             )
@@ -43,6 +43,7 @@ fun CategoryDetailScreenPreview() {
         Surface {
             CategoryDetailScreen(
                 onBackButtonClicked = {},
+                "",
                 ""
             )
         }
