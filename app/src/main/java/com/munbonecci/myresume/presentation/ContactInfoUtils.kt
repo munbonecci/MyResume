@@ -12,6 +12,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.Button
 import android.widget.Toast
+import androidx.browser.customtabs.CustomTabColorSchemeParams
+import androidx.browser.customtabs.CustomTabsIntent
+import androidx.core.content.ContextCompat
 import com.munbonecci.myresume.R
 
 
@@ -107,9 +110,34 @@ object ContactInfoUtils {
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
     }
 
+    fun openChromeTabs(context: Context, url: String) {
+        try {
+            val customTabColorSchemeParams = CustomTabColorSchemeParams.Builder()
+                .setToolbarColor(ContextCompat.getColor(context, R.color.purple_500))
+                .setSecondaryToolbarColor(ContextCompat.getColor(context, R.color.purple_500))
+                .build()
+            val builder = CustomTabsIntent.Builder()
+                .setShowTitle(true)
+                .setShareState(CustomTabsIntent.SHARE_STATE_ON)
+                .setExitAnimations(
+                    context, android.R.anim.slide_in_left, android.R.anim.slide_out_right
+                )
+            val customTabsIntent =
+                builder.setColorSchemeParams(
+                    CustomTabsIntent.COLOR_SCHEME_DARK, customTabColorSchemeParams
+                ).build()
+            customTabsIntent.intent.setPackage(CHROME_PACKAGE)
+            customTabsIntent.launchUrl(context, Uri.parse(url))
+        } catch (e: Exception) {
+            showToastAlert(context, CHROME_NOT_INSTALLED)
+        }
+    }
+
     private const val MAIL_TO = "mailto:"
     private const val APP_FEEDBACK = "App feedback"
     private const val WHATS_APP_PACKAGE = "com.whatsapp"
     private const val WHATS_APP_URI = "https://api.whatsapp.com/send?phone="
-    private const val WHATS_APP_NOT_INSTALLED = "WhatsApp not installed"
+    private const val WHATS_APP_NOT_INSTALLED = "WhatsApp is not installed"
+    private const val CHROME_NOT_INSTALLED = "Chrome is not installed"
+    private const val CHROME_PACKAGE = "com.android.chrome"
 }

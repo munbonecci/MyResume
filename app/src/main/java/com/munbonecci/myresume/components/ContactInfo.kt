@@ -52,7 +52,9 @@ fun ContactInfo() {
                                 context, context.getString(R.string.contact_phone)
                             )
                         }
-                        DataGenerator.WEB_VIEW_TYPE -> {}
+                        DataGenerator.WEB_VIEW_TYPE -> {
+                            ContactInfoUtils.openChromeTabs(context, data.info)
+                        }
                     }
                 })
             }
