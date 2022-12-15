@@ -12,6 +12,8 @@
     <string name="contact_github">https://github.com/munbonecci</string>
     <string name="contact_phone_label">Phone:</string>
     <string name="contact_phone">+523314684672</string>
+    <string name="contact_make_a_call">Call me</string>
+    <string name="contact_send_a_whats">Send me a message</string>
     <string name="email_icon_content_description">Email Icon</string>
     <string name="phone_icon_content_description">Phone Icon</string>
     <string name="link_icon_content_description">URL Icon</string>
@@ -28,4 +30,5 @@
     <string name="category_skills_content_description">Skills Category</string>
     <string name="back_button">Back</string>
     <string name="not_email_app_found_error_msg">"There are no email client installed on your device."</string>
+    <string name="close_button">Close</string>
 </resources>

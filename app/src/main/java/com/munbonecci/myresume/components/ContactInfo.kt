@@ -1,9 +1,5 @@
 package com.munbonecci.myresume.components
 
-import android.content.Context
-import android.content.Intent
-import android.net.Uri
-import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -26,6 +22,7 @@ import androidx.compose.ui.unit.sp
 import com.munbonecci.myresume.R
 import com.munbonecci.myresume.data.model.ContactInfoData
 import com.munbonecci.myresume.domain.DataGenerator
+import com.munbonecci.myresume.presentation.ContactInfoUtils
 import com.munbonecci.myresume.ui.theme.dimen_20dp
 
 
@@ -33,6 +30,7 @@ import com.munbonecci.myresume.ui.theme.dimen_20dp
 fun ContactInfo() {
     val contactInfoList = DataGenerator(LocalContext.current).contactInfoDataList
     val context = LocalContext.current
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -47,9 +45,13 @@ fun ContactInfo() {
                 ContactInfoItem(contactInfo, onItemClick = { data ->
                     when (data.type) {
                         DataGenerator.EMAIL_TYPE -> {
-                            sendEmail(context)
+                            ContactInfoUtils.sendEmail(context)
                         }
-                        DataGenerator.PHONE_TYPE -> {}
+                        DataGenerator.PHONE_TYPE -> {
+                            ContactInfoUtils.makeCallOrSendWhatsAppMessage(
+                                context, context.getString(R.string.contact_phone)
+                            )
+                        }
                         DataGenerator.WEB_VIEW_TYPE -> {}
                     }
                 })
@@ -99,28 +101,6 @@ fun ContactInfoItem(contactInfo: ContactInfoData, onItemClick: (ContactInfoData)
         )
     }
 }
-
-private fun sendEmail(context: Context) {
-    runCatching {
-        context.startActivity(Intent(Intent.ACTION_SENDTO).apply {
-            data = Uri.parse(MAIL_TO)
-            putExtra(
-                Intent.EXTRA_EMAIL,
-                arrayOf(context.getString(R.string.contact_email))
-            )
-            putExtra(Intent.EXTRA_SUBJECT, APP_FEEDBACK)
-        })
-    }.onFailure {
-        Toast.makeText(
-            context,
-            context.getString(R.string.not_email_app_found_error_msg),
-            Toast.LENGTH_SHORT
-        ).show()
-    }
-}
-
-private const val MAIL_TO = "mailto:"
-private const val APP_FEEDBACK = "App feedback"
 
 @Preview
 @Composable
