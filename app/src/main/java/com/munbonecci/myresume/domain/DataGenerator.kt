@@ -2,8 +2,7 @@ package com.munbonecci.myresume.domain
 
 import android.content.Context
 import com.munbonecci.myresume.R
-import com.munbonecci.myresume.data.model.CategoryData
-import com.munbonecci.myresume.data.model.ContactInfoData
+import com.munbonecci.myresume.data.model.*
 
 class DataGenerator(currentContext: Context) {
 
@@ -71,6 +70,65 @@ class DataGenerator(currentContext: Context) {
         )
     )
 
+    val experienceInfoDataList = listOf(
+        ExperienceData(
+            companyName = currentContext.getString(R.string.coppel_label),
+            companyRole = currentContext.getString(R.string.company_role_sr_android),
+            employmentType = currentContext.getString(R.string.employment_type_full),
+            location = currentContext.getString(R.string.location_guadalajara),
+            description = COPPEL_DESC,
+            startDate = "Jun 2019",
+            endDate = "Present",
+            industry = INDUSTRY_RETAIL,
+            companyURL = currentContext.getString(R.string.coppel_url),
+            icon = R.drawable.coppel_icon,
+            iconContentDescription = currentContext.getString(R.string.coppel_icon),
+            type = 0
+        ),
+        ExperienceData(
+            companyName = currentContext.getString(R.string.pegasus_label),
+            companyRole = currentContext.getString(R.string.company_role_sr_android),
+            employmentType = currentContext.getString(R.string.employment_type_full),
+            location = currentContext.getString(R.string.location_zapopan),
+            description = PEGASUS_DESC,
+            startDate = "Feb 2018",
+            endDate = "Jun 2019",
+            industry = INDUSTRY_TECH,
+            companyURL = currentContext.getString(R.string.pegasus_url),
+            icon = R.drawable.pegasus_icon,
+            iconContentDescription = currentContext.getString(R.string.pegasus_icon),
+            type = 0
+        ),
+        ExperienceData(
+            companyName = currentContext.getString(R.string.terra_mapping_label),
+            companyRole = currentContext.getString(R.string.company_role_web),
+            employmentType = currentContext.getString(R.string.employment_type_full),
+            location = currentContext.getString(R.string.location_zapopan),
+            description = "Maintenance and refactoring of the platform code using javascript and php.",
+            startDate = "Nov 2017",
+            endDate = "Feb 2018",
+            industry = INDUSTRY_TECH,
+            companyURL = currentContext.getString(R.string.terra_url),
+            icon = R.drawable.terra_icon,
+            iconContentDescription = currentContext.getString(R.string.terra_mapping_icon),
+            type = 0
+        ),
+        ExperienceData(
+            companyName = currentContext.getString(R.string.baricare_label),
+            companyRole = currentContext.getString(R.string.company_role_android),
+            employmentType = currentContext.getString(R.string.employment_type_full),
+            location = currentContext.getString(R.string.location_zapopan),
+            description = "UX/UI and Development of Android app coding in Java. Espresso and JUnit for test cases.",
+            startDate = "Sep 2016",
+            endDate = "Jul 2017",
+            industry = INDUSTRY_TECH,
+            companyURL = "",
+            icon = R.drawable.baricare_icon,
+            iconContentDescription = currentContext.getString(R.string.baricare_icon),
+            type = 0
+        )
+    )
+
     companion object {
         const val EMAIL_TYPE = 1
         const val PHONE_TYPE = 2
@@ -87,5 +145,16 @@ class DataGenerator(currentContext: Context) {
                     "electrical and electronic manufacturing industry. Skilled in kotlin, Java, Firebase (Analytics, Realtime database, Crashlytics, Remote config)," +
                     "Retrofit, Coroutines, Git, MVVM, MVP, Clean Arch. and Software Development. Strong engineering professional with a Engineer's degree focused" +
                     "in Computer Systems Engineering from Instituto Tecnológico Superior de Zapopan."
+
+        const val COPPEL_DESC =
+            "Development of new features with the MVVM design pattern, Clean arch, " +
+                    "coding in Kotlin and using Coroutines, Retrofit, Room database with cipher, firebase tools " +
+                    "(Analytics, Crashlytics, Realtime DB, Remote config for A/B testing), and external libraries. " +
+                    "Bug fixing and deployment of the application in Google Play store and Huawei gallery."
+
+        const val PEGASUS_DESC =
+            "Development of new features with MVP and MVC using Java and Kotlin, " +
+                    "external libraries, connection of beacons and Bluetooth devices, use of google maps, " +
+                    "bug fixes, and deployment in the Google Play Store."
     }
 }
