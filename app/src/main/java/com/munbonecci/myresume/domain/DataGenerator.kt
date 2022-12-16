@@ -129,6 +129,22 @@ class DataGenerator(currentContext: Context) {
         )
     )
 
+    val educationInfoDataList = listOf(
+        EducationData(
+            school = currentContext.getString(R.string.school_name),
+            degree = currentContext.getString(R.string.school_degree),
+            grade = currentContext.getString(R.string.school_grade),
+            fieldOfStudy = currentContext.getString(R.string.school_field),
+            location = currentContext.getString(R.string.location_zapopan),
+            description = SCHOOL_DESC,
+            startDate = currentContext.getString(R.string.school_start_date),
+            endDate = currentContext.getString(R.string.school_end_date),
+            schoolURL = currentContext.getString(R.string.school_url),
+            icon = R.drawable.temmzapopan_icon,
+            iconContentDescription = currentContext.getString(R.string.school_name_icon)
+        )
+    )
+
     companion object {
         const val EMAIL_TYPE = 1
         const val PHONE_TYPE = 2
@@ -156,5 +172,10 @@ class DataGenerator(currentContext: Context) {
             "Development of new features with MVP and MVC using Java and Kotlin, " +
                     "external libraries, connection of beacons and Bluetooth devices, use of google maps, " +
                     "bug fixes, and deployment in the Google Play Store."
+
+        const val SCHOOL_DESC =
+            "Ability to design, implement and manage computational infrastructure " +
+                    "to provide innovative solutions for the benefit of society, in a global, " +
+                    "multidisciplinary and sustainable context. Also focused on software development."
     }
 }

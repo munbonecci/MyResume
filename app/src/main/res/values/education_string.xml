@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="school_name">TecMM Zapopan campus</string>
+    <string name="school_name_icon">TecMM Zapopan campus icon</string>
+    <string name="school_degree">Engineer\'s degree</string>
+    <string name="school_field">Computer Systems Engineering</string>
+    <string name="school_grade">Software development</string>
+    <string name="school_start_date">2012</string>
+    <string name="school_end_date">2017</string>
+    <string name="school_url">https://tecmm.edu.mx/quienesSomos</string>
+</resources>
