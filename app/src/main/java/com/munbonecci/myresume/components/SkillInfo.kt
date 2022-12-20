@@ -11,7 +11,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.Center
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -53,11 +52,10 @@ fun SkillInfoItem(skillData: SkillData, onItemClick: (SkillData) -> Unit) {
             },
         contentAlignment = Center
     ) {
-        Column() {
+        Column {
             Text(
                 text = skillData.name,
                 fontSize = 15.sp,
-                fontWeight = FontWeight.Bold,
             )
             CustomSpacer(
                 spacerDimens = SpacerDimens.MEDIUM, spacerOrientation = SpacerOrientation.HORIZONTAL
