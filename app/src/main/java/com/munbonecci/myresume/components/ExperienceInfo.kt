@@ -32,10 +32,8 @@ fun ExperienceInfo() {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(16.dp)
     ) {
         LazyColumn(
-            modifier = Modifier.padding(5.dp),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.Start
         ) {
@@ -53,7 +51,7 @@ fun ExperienceInfo() {
 @Composable
 fun ExperienceInfoItem(experienceInfo: ExperienceData, onItemClick: (ExperienceData) -> Unit) {
     Column(modifier = Modifier
-        .padding(top = 16.dp)
+        .padding(top = 16.dp, start = 16.dp, end = 16.dp)
         .fillMaxWidth()
         .clickable {
             onItemClick(experienceInfo)
