@@ -145,6 +145,24 @@ class DataGenerator(currentContext: Context) {
         )
     )
 
+    val skillInfoDataList = listOf(
+        SkillData(name = ANDROID_DEVELOPMENT_SKILL, percentage = 90),
+        SkillData(name = KOTLIN_SKILL, percentage = 90),
+        SkillData(name = JAVA_SKILL, percentage = 90),
+        SkillData(name = ANDROID_COMPOSE_SKILL, percentage = 60),
+        SkillData(name = MVVM_SKILL, percentage = 80),
+        SkillData(name = CLEAN_ARCH_SKILL, percentage = 80),
+        SkillData(name = JUNIT_SKILL, percentage = 70),
+        SkillData(name = GIT_SKILL, percentage = 90),
+        SkillData(name = SCRUM_SKILL, percentage = 80),
+        SkillData(name = FIREBASE_TOOLS_SKILL, percentage = 90)
+    )
+
+    val languageInfoDataList = listOf(
+        LanguageData(name = ENGLISH_LANGUAGE, percentage = 80),
+        LanguageData(name = SPANISH_LANGUAGE, percentage = 100),
+    )
+
     companion object {
         const val EMAIL_TYPE = 1
         const val PHONE_TYPE = 2

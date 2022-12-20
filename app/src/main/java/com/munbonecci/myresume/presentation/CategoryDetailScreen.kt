@@ -6,10 +6,7 @@ import androidx.compose.material.Scaffold
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
-import com.munbonecci.myresume.components.AppBar
-import com.munbonecci.myresume.components.ContactInfo
-import com.munbonecci.myresume.components.EducationInfo
-import com.munbonecci.myresume.components.ExperienceInfo
+import com.munbonecci.myresume.components.*
 import com.munbonecci.myresume.domain.DataGenerator
 import com.munbonecci.myresume.ui.theme.MyResumeTheme
 
@@ -37,6 +34,12 @@ fun CategoryDetailScreen(onBackButtonClicked: () -> Unit, type: String?, name: S
                 }
                 DataGenerator.CATEGORY_EDUCATION -> {
                     EducationInfo()
+                }
+                DataGenerator.CATEGORY_SKILLS -> {
+                    SkillInfo()
+                }
+                DataGenerator.CATEGORY_LANGUAGES -> {
+                    LanguageInfo()
                 }
             }
         }
