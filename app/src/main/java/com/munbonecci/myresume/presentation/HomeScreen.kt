@@ -20,7 +20,7 @@ fun HomeScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(16.dp)
+            .padding(top = 16.dp, start = 16.dp, end = 16.dp)
     ) {
         CustomSpacer(
             spacerDimens = SpacerDimens.MEDIUM
@@ -35,7 +35,7 @@ fun HomeScreen(
         )
         About()
         CustomSpacer(
-            spacerDimens = SpacerDimens.MEDIUM
+            spacerDimens = SpacerDimens.SMALL
         )
         ProfileCategories(onCategoryButtonClicked)
         CustomSpacer(

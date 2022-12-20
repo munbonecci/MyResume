@@ -30,7 +30,6 @@ fun ProfileCategories(onCategoryButtonClicked: (CategoryData) -> Unit) {
     val categoryInfoList = DataGenerator(LocalContext.current).categoryInfoDataList
 
     LazyColumn(
-        modifier = Modifier.padding(5.dp),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.Start
     ) {
