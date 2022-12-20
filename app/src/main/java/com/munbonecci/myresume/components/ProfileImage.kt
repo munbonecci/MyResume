@@ -5,6 +5,8 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Close
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
@@ -79,14 +81,22 @@ private fun CustomDialogUI(
         ) {
             Column(
                 modifier = Modifier
-                    .padding(16.dp)
+                    .padding(top = 4.dp, bottom = 16.dp, start = 16.dp, end = 16.dp)
                     .verticalScroll(rememberScrollState())
                     .weight(weight = 1f, fill = false)
             ) {
+                IconButton(enabled = true, onClick = {
+                    showProfileDialog.value = false
+                }, modifier = Modifier.align(Alignment.End)) {
+                    Icon(
+                        imageVector = Icons.Filled.Close,
+                        tint = MaterialTheme.colors.primary,
+                        contentDescription = stringResource(R.string.close_button),
+                    )
+                }
                 Surface(
                     modifier = Modifier
                         .size(60.dp)
-                        .padding(4.dp)
                         .align(Alignment.CenterHorizontally),
                     shape = CircleShape,
                     border = BorderStroke(0.5.dp, Color.LightGray),
@@ -146,19 +156,6 @@ private fun CustomDialogUI(
                         }
                     ) {
                         Text(text = stringResource(id = R.string.show_full_resume))
-                    }
-                }
-                Row(
-                    modifier = Modifier.padding(top = 4.dp, bottom = 2.dp),
-                    horizontalArrangement = Arrangement.Center
-                ) {
-                    Button(
-                        modifier = Modifier.fillMaxWidth(),
-                        onClick = {
-                            showProfileDialog.value = false
-                        }
-                    ) {
-                        Text(text = stringResource(id = R.string.dismiss_label))
                     }
                 }
             }
