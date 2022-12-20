@@ -31,4 +31,6 @@
     <string name="back_button">Back</string>
     <string name="not_email_app_found_error_msg">"There are no email client installed on your device."</string>
     <string name="close_button">Close</string>
+    <string name="dismiss_label">"Dismiss"</string>
+    <string name="show_full_resume">Show full resume</string>
 </resources>
