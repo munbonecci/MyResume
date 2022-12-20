@@ -15,6 +15,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
@@ -23,6 +24,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import com.munbonecci.myresume.R
+import com.munbonecci.myresume.presentation.ContactInfoUtils
 
 @Composable
 fun ProfileImage(modifier: Modifier = Modifier) {
@@ -70,6 +72,8 @@ private fun CustomDialogUI(
     modifier: Modifier = Modifier,
     showProfileDialog: MutableState<Boolean>
 ) {
+    val context = LocalContext.current
+    val resume = stringResource(id = R.string.resume_feedback_url)
     Card(
         shape = RoundedCornerShape(10.dp),
         modifier = Modifier.padding(10.dp, 5.dp, 10.dp, 10.dp),
@@ -153,6 +157,7 @@ private fun CustomDialogUI(
                         modifier = Modifier.fillMaxWidth(),
                         onClick = {
                             showProfileDialog.value = false
+                            ContactInfoUtils.openChromeTabs(context, resume)
                         }
                     ) {
                         Text(text = stringResource(id = R.string.show_full_resume))
