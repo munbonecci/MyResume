@@ -1,5 +1,6 @@
 package com.munbonecci.myresume.core
 
+import android.content.res.Configuration
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -31,10 +32,13 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@Preview(showBackground = true)
 @Composable
+@Preview(name = "light_mode")
+@Preview(name = "dark_mode", uiMode = Configuration.UI_MODE_NIGHT_YES)
 fun DefaultPreview() {
     MyResumeTheme {
-        HomeScreen(onCategoryButtonClicked = {})
+        Surface {
+            HomeScreen(onCategoryButtonClicked = {})
+        }
     }
 }
