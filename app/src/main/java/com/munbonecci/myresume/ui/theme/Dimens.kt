@@ -2,7 +2,6 @@ package com.munbonecci.myresume.ui.theme
 
 import androidx.compose.ui.unit.dp
 
-val dimen_0dp = 0.dp
 val dimen_1dp = 1.dp
 val dimen_2dp = 2.dp
 val dimen_3dp = 3.dp
@@ -19,6 +18,4 @@ val dimen_46dp = 46.dp
 val dimen_60dp = 60.dp
 val dimen_110dp = 110.dp
 val dimen_120dp = 120.dp
-val dimen_200dp = 200.dp
-val dimen_250dp = 250.dp
 val dimen_300dp = 300.dp
