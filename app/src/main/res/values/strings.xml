@@ -34,4 +34,8 @@
     <string name="dismiss_label">"Dismiss"</string>
     <string name="show_full_resume">Show full resume</string>
     <string name="resume_feedback_url">https://app.flowcv.com/resume-feedback/jHY-84VUtE6oOxeWN3EF5</string>
+    <string name="comments_feedback_here">Comments and Feedback here</string>
+    <string name="app_info">Application to show information about my professional profile, created in android compose,
+        your comments will help me improve. Thanks for viewing this!</string>
+    <string name="version_label">Version</string>
 </resources>
