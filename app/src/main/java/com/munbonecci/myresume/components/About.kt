@@ -10,16 +10,17 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.munbonecci.myresume.R
 import com.munbonecci.myresume.domain.DataGenerator
+import com.munbonecci.myresume.ui.theme.dimen_3dp
+import com.munbonecci.myresume.ui.theme.dimen_5dp
 
 
 @Composable
 fun About() {
     Column(
-        modifier = Modifier.padding(5.dp),
+        modifier = Modifier.padding(dimen_5dp),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.Start
     ) {
@@ -32,7 +33,7 @@ fun About() {
         ExpandableText(
             fontSize = 12.sp,
             text = DataGenerator.ABOUT_INFO,
-            modifier = Modifier.padding(3.dp)
+            modifier = Modifier.padding(dimen_3dp)
         )
     }
 }

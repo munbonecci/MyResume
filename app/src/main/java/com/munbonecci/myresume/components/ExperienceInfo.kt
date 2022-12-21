@@ -16,12 +16,14 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.munbonecci.myresume.data.model.ExperienceData
 import com.munbonecci.myresume.domain.DataGenerator
 import com.munbonecci.myresume.presentation.ContactInfoUtils
+import com.munbonecci.myresume.ui.theme.dimen_16dp
+import com.munbonecci.myresume.ui.theme.dimen_1dp
 import com.munbonecci.myresume.ui.theme.dimen_20dp
+import com.munbonecci.myresume.ui.theme.dimen_3dp
 
 
 @Composable
@@ -51,7 +53,7 @@ fun ExperienceInfo() {
 @Composable
 fun ExperienceInfoItem(experienceInfo: ExperienceData, onItemClick: (ExperienceData) -> Unit) {
     Column(modifier = Modifier
-        .padding(top = 16.dp, start = 16.dp, end = 16.dp)
+        .padding(top = dimen_16dp, start = dimen_16dp, end = dimen_16dp)
         .fillMaxWidth()
         .clickable {
             onItemClick(experienceInfo)
@@ -84,17 +86,17 @@ fun ExperienceInfoItem(experienceInfo: ExperienceData, onItemClick: (ExperienceD
         Text(
             fontSize = 14.sp,
             text = "${experienceInfo.companyName} · ${experienceInfo.employmentType}",
-            modifier = Modifier.padding(1.dp)
+            modifier = Modifier.padding(dimen_1dp)
         )
         Text(
             fontSize = 11.sp,
             text = "${experienceInfo.startDate} - ${experienceInfo.endDate}",
-            modifier = Modifier.padding(1.dp)
+            modifier = Modifier.padding(dimen_1dp)
         )
         Text(
             fontSize = 11.sp,
             text = experienceInfo.location,
-            modifier = Modifier.padding(1.dp)
+            modifier = Modifier.padding(dimen_1dp)
         )
         CustomSpacer(
             spacerDimens = SpacerDimens.EXTRA_LARGE,
@@ -103,7 +105,7 @@ fun ExperienceInfoItem(experienceInfo: ExperienceData, onItemClick: (ExperienceD
         ExpandableText(
             fontSize = 13.sp,
             text = experienceInfo.description,
-            modifier = Modifier.padding(3.dp)
+            modifier = Modifier.padding(dimen_3dp)
         )
         CustomSpacer(
             spacerDimens = SpacerDimens.LARGE,

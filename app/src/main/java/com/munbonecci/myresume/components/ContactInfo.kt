@@ -23,7 +23,9 @@ import com.munbonecci.myresume.R
 import com.munbonecci.myresume.data.model.ContactInfoData
 import com.munbonecci.myresume.domain.DataGenerator
 import com.munbonecci.myresume.presentation.ContactInfoUtils
+import com.munbonecci.myresume.ui.theme.dimen_16dp
 import com.munbonecci.myresume.ui.theme.dimen_20dp
+import com.munbonecci.myresume.ui.theme.dimen_5dp
 
 
 @Composable
@@ -34,10 +36,10 @@ fun ContactInfo() {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(16.dp)
+            .padding(dimen_16dp)
     ) {
         LazyColumn(
-            modifier = Modifier.padding(5.dp),
+            modifier = Modifier.padding(dimen_5dp),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.Start
         ) {

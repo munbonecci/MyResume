@@ -18,12 +18,13 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.munbonecci.myresume.R
 import com.munbonecci.myresume.data.model.CategoryData
 import com.munbonecci.myresume.domain.DataGenerator
+import com.munbonecci.myresume.ui.theme.dimen_16dp
 import com.munbonecci.myresume.ui.theme.dimen_20dp
+import com.munbonecci.myresume.ui.theme.dimen_4dp
 
 @Composable
 fun ProfileCategories(onCategoryButtonClicked: (CategoryData) -> Unit) {
@@ -45,14 +46,14 @@ fun ProfileCategories(onCategoryButtonClicked: (CategoryData) -> Unit) {
 fun ProfileCategoryItem(categoryData: CategoryData, onItemClick: (CategoryData) -> Unit) {
     Card(modifier = Modifier
         .fillMaxWidth()
-        .padding(4.dp)
+        .padding(dimen_4dp)
         .clickable {
             onItemClick(categoryData)
         }) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(all = 16.dp),
+                .padding(all = dimen_16dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
             Image(
@@ -73,7 +74,7 @@ fun ProfileCategoryItem(categoryData: CategoryData, onItemClick: (CategoryData) 
                 Column(
                     modifier = Modifier
                         .weight(weight = 3f, fill = false)
-                        .padding(start = 16.dp)
+                        .padding(start = dimen_16dp)
                 ) {
                     Text(fontSize = 14.sp, text = categoryData.label)
                     CustomSpacer(

@@ -10,9 +10,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.munbonecci.myresume.R
+import com.munbonecci.myresume.ui.theme.dimen_3dp
+import com.munbonecci.myresume.ui.theme.dimen_5dp
 
 
 @Composable
@@ -23,7 +24,7 @@ fun ProfileInfo(profileName: String = "", headline: String = "") {
         headline.ifEmpty { stringResource(id = R.string.profile_headline) }
 
     Column(
-        modifier = Modifier.padding(5.dp),
+        modifier = Modifier.padding(dimen_5dp),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.Start
     ) {
@@ -35,7 +36,7 @@ fun ProfileInfo(profileName: String = "", headline: String = "") {
         )
         Text(
             text = headLine,
-            modifier = Modifier.padding(3.dp)
+            modifier = Modifier.padding(dimen_3dp)
         )
     }
 }

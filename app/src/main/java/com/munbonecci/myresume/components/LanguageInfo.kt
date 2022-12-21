@@ -11,9 +11,10 @@ import androidx.compose.ui.Alignment.Companion.Center
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.munbonecci.myresume.data.model.LanguageData
 import com.munbonecci.myresume.domain.DataGenerator
+import com.munbonecci.myresume.ui.theme.dimen_16dp
+import com.munbonecci.myresume.ui.theme.dimen_8dp
 
 @Composable
 fun LanguageInfo() {
@@ -22,12 +23,12 @@ fun LanguageInfo() {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(start = 16.dp, end = 16.dp)
+            .padding(start = dimen_16dp, end = dimen_16dp)
     ) {
         LazyVerticalGrid(
             columns = GridCells.Fixed(2),
-            verticalArrangement = Arrangement.spacedBy(16.dp),
-            horizontalArrangement = Arrangement.spacedBy(16.dp)
+            verticalArrangement = Arrangement.spacedBy(dimen_16dp),
+            horizontalArrangement = Arrangement.spacedBy(dimen_16dp)
         ) {
             items(languageInfoList) { language ->
                 LanguageInfoItem(language, onItemClick = { data ->
@@ -42,7 +43,7 @@ fun LanguageInfo() {
 fun LanguageInfoItem(languageData: LanguageData, onItemClick: (LanguageData) -> Unit) {
     Box(
         modifier = Modifier
-            .padding(top = 8.dp)
+            .padding(top = dimen_8dp)
             .fillMaxWidth()
             .clickable {
                 onItemClick(languageData)

@@ -23,11 +23,11 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import com.munbonecci.myresume.R
 import com.munbonecci.myresume.presentation.ContactInfoUtils
+import com.munbonecci.myresume.ui.theme.*
 
 @Composable
 fun HomeHeader() {
@@ -72,9 +72,9 @@ private fun CustomInfoDialog(
     val context = LocalContext.current
 
     Card(
-        shape = RoundedCornerShape(10.dp),
-        modifier = Modifier.padding(10.dp, 5.dp, 10.dp, 10.dp),
-        elevation = 8.dp
+        shape = RoundedCornerShape(dimen_10dp),
+        modifier = Modifier.padding(dimen_10dp, dimen_5dp, dimen_10dp, dimen_10dp),
+        elevation = dimen_8dp
     ) {
         Column(
             modifier = modifier
@@ -82,7 +82,12 @@ private fun CustomInfoDialog(
         ) {
             Column(
                 modifier = Modifier
-                    .padding(top = 4.dp, bottom = 16.dp, start = 16.dp, end = 16.dp)
+                    .padding(
+                        top = dimen_4dp,
+                        bottom = dimen_16dp,
+                        start = dimen_16dp,
+                        end = dimen_16dp
+                    )
                     .verticalScroll(rememberScrollState())
                     .weight(weight = 1f, fill = false)
             ) {
@@ -99,14 +104,14 @@ private fun CustomInfoDialog(
                     painter = painterResource(id = R.drawable.resume_icon),
                     contentDescription = stringResource(id = R.string.app_name),
                     modifier = Modifier
-                        .size(60.dp)
+                        .size(dimen_60dp)
                         .align(Alignment.CenterHorizontally),
                     contentScale = ContentScale.Crop
                 )
                 Text(
                     text = stringResource(id = R.string.app_name),
                     modifier = Modifier
-                        .padding(top = 2.dp)
+                        .padding(top = dimen_2dp)
                         .align(Alignment.CenterHorizontally),
                     color = MaterialTheme.colors.primary,
                     fontSize = 16.sp,
@@ -115,11 +120,11 @@ private fun CustomInfoDialog(
                 Text(
                     text = stringResource(id = R.string.app_info),
                     fontSize = 11.sp,
-                    modifier = Modifier.padding(top = 4.dp),
+                    modifier = Modifier.padding(top = dimen_4dp),
                     textAlign = TextAlign.Center
                 )
                 Row(
-                    modifier = Modifier.padding(top = 4.dp),
+                    modifier = Modifier.padding(top = dimen_4dp),
                     horizontalArrangement = Arrangement.Center
                 ) {
                     Button(

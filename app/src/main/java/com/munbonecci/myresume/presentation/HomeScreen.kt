@@ -8,10 +8,10 @@ import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.munbonecci.myresume.components.*
 import com.munbonecci.myresume.data.model.CategoryData
 import com.munbonecci.myresume.ui.theme.MyResumeTheme
+import com.munbonecci.myresume.ui.theme.dimen_16dp
 
 @Composable
 fun HomeScreen(
@@ -20,7 +20,7 @@ fun HomeScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(top = 16.dp, start = 16.dp, end = 16.dp)
+            .padding(top = dimen_16dp, start = dimen_16dp, end = dimen_16dp)
     ) {
         HomeHeader()
         CustomSpacer(

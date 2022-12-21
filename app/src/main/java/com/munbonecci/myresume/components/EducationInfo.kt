@@ -21,7 +21,10 @@ import androidx.compose.ui.unit.sp
 import com.munbonecci.myresume.data.model.EducationData
 import com.munbonecci.myresume.domain.DataGenerator
 import com.munbonecci.myresume.presentation.ContactInfoUtils
+import com.munbonecci.myresume.ui.theme.dimen_16dp
 import com.munbonecci.myresume.ui.theme.dimen_30dp
+import com.munbonecci.myresume.ui.theme.dimen_3dp
+import com.munbonecci.myresume.ui.theme.dimen_5dp
 
 
 @Composable
@@ -32,10 +35,10 @@ fun EducationInfo() {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(16.dp)
+            .padding(dimen_16dp)
     ) {
         LazyColumn(
-            modifier = Modifier.padding(5.dp),
+            modifier = Modifier.padding(dimen_5dp),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.Start
         ) {
@@ -53,7 +56,7 @@ fun EducationInfo() {
 @Composable
 fun EducationInfoItem(educationData: EducationData, onItemClick: (EducationData) -> Unit) {
     Column(modifier = Modifier
-        .padding(top = 16.dp)
+        .padding(top = dimen_16dp)
         .fillMaxWidth()
         .clickable {
             onItemClick(educationData)
@@ -105,7 +108,7 @@ fun EducationInfoItem(educationData: EducationData, onItemClick: (EducationData)
         ExpandableText(
             fontSize = 13.sp,
             text = educationData.description,
-            modifier = Modifier.padding(3.dp)
+            modifier = Modifier.padding(dimen_3dp)
         )
         CustomSpacer(
             spacerDimens = SpacerDimens.LARGE,

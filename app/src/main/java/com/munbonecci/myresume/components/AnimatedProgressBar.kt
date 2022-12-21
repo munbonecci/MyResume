@@ -14,6 +14,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.munbonecci.myresume.ui.theme.dimen_300dp
+import com.munbonecci.myresume.ui.theme.dimen_8dp
 
 @Composable
 fun AnimatedProgressBar(indicatorProgress: Int) {
@@ -22,11 +24,11 @@ fun AnimatedProgressBar(indicatorProgress: Int) {
             .fillMaxSize()
             .fillMaxWidth()
             .height(46.dp)
-            .padding(top = 8.dp, bottom = 8.dp),
+            .padding(top = dimen_8dp, bottom = dimen_8dp),
         horizontalAlignment = Alignment.Start,
         verticalArrangement = Arrangement.Center
     ) {
-        Spacer(modifier = Modifier.height(8.dp))
+        Spacer(modifier = Modifier.height(dimen_8dp))
         CustomProgressBar(indicatorNumber = indicatorProgress)
     }
 }
@@ -35,7 +37,7 @@ fun AnimatedProgressBar(indicatorProgress: Int) {
 fun CustomProgressBar(
     indicatorNumber: Int,
     backgroundIndicatorColor: Color = MaterialTheme.colors.primary.copy(alpha = 0.3f),
-    indicatorPadding: Dp = 8.dp,
+    indicatorPadding: Dp = dimen_8dp,
     gradientColors: List<Color> = listOf(
         MaterialTheme.colors.primary,
         MaterialTheme.colors.primaryVariant,
@@ -61,13 +63,13 @@ fun CustomProgressBar(
 
     Box(
         modifier = Modifier
-            .height(300.dp)
+            .height(dimen_300dp)
             .fillMaxWidth()
     ) {
         Canvas(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(300.dp)
+                .height(dimen_300dp)
                 .padding(start = indicatorPadding, end = indicatorPadding)
         ) {
             drawLine(

@@ -12,10 +12,12 @@ import androidx.compose.ui.Alignment.Companion.Center
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.munbonecci.myresume.data.model.SkillData
 import com.munbonecci.myresume.domain.DataGenerator
+import com.munbonecci.myresume.ui.theme.dimen_16dp
+import com.munbonecci.myresume.ui.theme.dimen_5dp
+import com.munbonecci.myresume.ui.theme.dimen_8dp
 
 
 @Composable
@@ -25,10 +27,10 @@ fun SkillInfo() {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(start = 16.dp, end = 16.dp)
+            .padding(start = dimen_16dp, end = dimen_16dp)
     ) {
         LazyColumn(
-            modifier = Modifier.padding(5.dp),
+            modifier = Modifier.padding(dimen_5dp),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.Start
         ) {
@@ -45,7 +47,7 @@ fun SkillInfo() {
 fun SkillInfoItem(skillData: SkillData, onItemClick: (SkillData) -> Unit) {
     Box(
         modifier = Modifier
-            .padding(top = 8.dp)
+            .padding(top = dimen_8dp)
             .fillMaxWidth()
             .clickable {
                 onItemClick(skillData)

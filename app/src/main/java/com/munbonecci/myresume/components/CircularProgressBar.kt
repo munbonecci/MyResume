@@ -21,6 +21,8 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.munbonecci.myresume.ui.theme.dimen_16dp
+import com.munbonecci.myresume.ui.theme.dimen_8dp
 
 @Composable
 fun CircularProgressbar(
@@ -28,7 +30,7 @@ fun CircularProgressbar(
     size: Dp = 110.dp,
     foregroundIndicatorColor: Color = MaterialTheme.colors.primary,
     shadowColor: Color = Color.LightGray,
-    indicatorThickness: Dp = 8.dp,
+    indicatorThickness: Dp = dimen_8dp,
     dataUsage: Float = 60f,
     animationDuration: Int = 1000,
     dataTextStyle: TextStyle = TextStyle(fontSize = 12.sp),
@@ -51,7 +53,7 @@ fun CircularProgressbar(
     Box(
         modifier = Modifier
             .size(size)
-            .padding(top = 8.dp),
+            .padding(top = dimen_8dp),
         contentAlignment = Alignment.Center
     ) {
         Canvas(
@@ -98,7 +100,7 @@ fun CircularProgressbar(
         )
     }
 
-    Spacer(modifier = Modifier.height(16.dp))
+    Spacer(modifier = Modifier.height(dimen_16dp))
 }
 
 @Composable
@@ -110,7 +112,7 @@ private fun DisplayText(
     Column(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = Modifier.padding(8.dp)
+        modifier = Modifier.padding(dimen_8dp)
     ) {
         Text(
             text = name,
