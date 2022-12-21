@@ -67,7 +67,7 @@ fun ContactInfo() {
 @Composable
 fun ContactInfoItem(contactInfo: ContactInfoData, onItemClick: (ContactInfoData) -> Unit) {
     Column(modifier = Modifier
-        .padding(top = 16.dp)
+        .padding(top = dimen_16dp)
         .fillMaxWidth()
         .clickable {
             onItemClick(contactInfo)

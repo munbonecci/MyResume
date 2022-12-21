@@ -13,8 +13,8 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.unit.Dp
-import androidx.compose.ui.unit.dp
 import com.munbonecci.myresume.ui.theme.dimen_300dp
+import com.munbonecci.myresume.ui.theme.dimen_46dp
 import com.munbonecci.myresume.ui.theme.dimen_8dp
 
 @Composable
@@ -23,7 +23,7 @@ fun AnimatedProgressBar(indicatorProgress: Int) {
         modifier = Modifier
             .fillMaxSize()
             .fillMaxWidth()
-            .height(46.dp)
+            .height(dimen_46dp)
             .padding(top = dimen_8dp, bottom = dimen_8dp),
         horizontalAlignment = Alignment.Start,
         verticalArrangement = Arrangement.Center

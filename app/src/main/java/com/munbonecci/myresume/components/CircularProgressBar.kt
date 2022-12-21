@@ -19,15 +19,15 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.munbonecci.myresume.ui.theme.dimen_110dp
 import com.munbonecci.myresume.ui.theme.dimen_16dp
 import com.munbonecci.myresume.ui.theme.dimen_8dp
 
 @Composable
 fun CircularProgressbar(
     name: String = "",
-    size: Dp = 110.dp,
+    size: Dp = dimen_110dp,
     foregroundIndicatorColor: Color = MaterialTheme.colors.primary,
     shadowColor: Color = Color.LightGray,
     indicatorThickness: Dp = dimen_8dp,
