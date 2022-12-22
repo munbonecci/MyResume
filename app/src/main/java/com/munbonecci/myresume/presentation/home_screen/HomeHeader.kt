@@ -1,4 +1,4 @@
-package com.munbonecci.myresume.components
+package com.munbonecci.myresume.presentation.home_screen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background

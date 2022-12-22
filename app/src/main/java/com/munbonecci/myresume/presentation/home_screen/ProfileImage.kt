@@ -1,4 +1,4 @@
-package com.munbonecci.myresume.components
+package com.munbonecci.myresume.presentation.home_screen
 
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
@@ -81,8 +81,7 @@ private fun CustomDialogUI(
         elevation = dimen_8dp
     ) {
         Column(
-            modifier = modifier
-                .background(Color.White)
+            modifier = modifier.background(Color.White)
         ) {
             Column(
                 modifier = Modifier

@@ -1,4 +1,4 @@
-package com.munbonecci.myresume.components
+package com.munbonecci.myresume.presentation.detail_screen
 
 import android.util.Log
 import androidx.compose.foundation.clickable
@@ -11,6 +11,10 @@ import androidx.compose.ui.Alignment.Companion.Center
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
+import com.munbonecci.myresume.components.CircularProgressbar
+import com.munbonecci.myresume.components.CustomSpacer
+import com.munbonecci.myresume.components.SpacerDimens
+import com.munbonecci.myresume.components.SpacerOrientation
 import com.munbonecci.myresume.data.model.LanguageData
 import com.munbonecci.myresume.domain.DataGenerator
 import com.munbonecci.myresume.ui.theme.dimen_16dp
@@ -55,8 +59,7 @@ fun LanguageInfoItem(languageData: LanguageData, onItemClick: (LanguageData) -> 
                 spacerDimens = SpacerDimens.MEDIUM, spacerOrientation = SpacerOrientation.HORIZONTAL
             )
             CircularProgressbar(
-                dataUsage = languageData.percentage.toFloat(),
-                name = languageData.name
+                dataUsage = languageData.percentage.toFloat(), name = languageData.name
             )
             CustomSpacer(
                 spacerDimens = SpacerDimens.MEDIUM, spacerOrientation = SpacerOrientation.HORIZONTAL

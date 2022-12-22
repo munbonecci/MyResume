@@ -7,8 +7,8 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
-import com.munbonecci.myresume.presentation.CategoryDetailScreen
-import com.munbonecci.myresume.presentation.HomeScreen
+import com.munbonecci.myresume.presentation.detail_screen.CategoryDetailScreen
+import com.munbonecci.myresume.presentation.home_screen.HomeScreen
 
 @Composable
 fun NavigationGraph(navController: NavHostController) {

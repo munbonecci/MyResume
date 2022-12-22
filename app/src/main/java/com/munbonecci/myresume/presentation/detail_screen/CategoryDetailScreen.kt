@@ -1,4 +1,4 @@
-package com.munbonecci.myresume.presentation
+package com.munbonecci.myresume.presentation.detail_screen
 
 import android.content.res.Configuration
 import android.util.Log
@@ -6,7 +6,7 @@ import androidx.compose.material.Scaffold
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
-import com.munbonecci.myresume.components.*
+import com.munbonecci.myresume.components.AppBar
 import com.munbonecci.myresume.domain.DataGenerator
 import com.munbonecci.myresume.ui.theme.MyResumeTheme
 

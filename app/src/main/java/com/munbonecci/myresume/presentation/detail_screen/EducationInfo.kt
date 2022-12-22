@@ -1,4 +1,4 @@
-package com.munbonecci.myresume.components
+package com.munbonecci.myresume.presentation.detail_screen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
@@ -16,33 +16,40 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.munbonecci.myresume.data.model.ExperienceData
+import com.munbonecci.myresume.components.CustomSpacer
+import com.munbonecci.myresume.components.ExpandableText
+import com.munbonecci.myresume.components.SpacerDimens.*
+import com.munbonecci.myresume.components.SpacerOrientation
+import com.munbonecci.myresume.data.model.EducationData
 import com.munbonecci.myresume.domain.DataGenerator
 import com.munbonecci.myresume.presentation.ContactInfoUtils
 import com.munbonecci.myresume.ui.theme.dimen_16dp
-import com.munbonecci.myresume.ui.theme.dimen_1dp
-import com.munbonecci.myresume.ui.theme.dimen_20dp
+import com.munbonecci.myresume.ui.theme.dimen_30dp
 import com.munbonecci.myresume.ui.theme.dimen_3dp
+import com.munbonecci.myresume.ui.theme.dimen_5dp
 
 
 @Composable
-fun ExperienceInfo() {
-    val experienceInfoList = DataGenerator(LocalContext.current).experienceInfoDataList
+fun EducationInfo() {
+    val educationInfoList = DataGenerator(LocalContext.current).educationInfoDataList
     val context = LocalContext.current
 
     Column(
         modifier = Modifier
             .fillMaxSize()
+            .padding(dimen_16dp)
     ) {
         LazyColumn(
+            modifier = Modifier.padding(dimen_5dp),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.Start
         ) {
-            items(experienceInfoList) { experienceInfo ->
-                ExperienceInfoItem(experienceInfo, onItemClick = { data ->
-                    if (data.companyURL.isNotEmpty()) {
-                        ContactInfoUtils.openChromeTabs(context, data.companyURL)
+            items(educationInfoList) { education ->
+                EducationInfoItem(education, onItemClick = { data ->
+                    if (data.school.isNotEmpty()) {
+                        ContactInfoUtils.openChromeTabs(context, data.schoolURL)
                     }
                 })
             }
@@ -51,64 +58,64 @@ fun ExperienceInfo() {
 }
 
 @Composable
-fun ExperienceInfoItem(experienceInfo: ExperienceData, onItemClick: (ExperienceData) -> Unit) {
+fun EducationInfoItem(educationData: EducationData, onItemClick: (EducationData) -> Unit) {
     Column(modifier = Modifier
-        .padding(top = dimen_16dp, start = dimen_16dp, end = dimen_16dp)
+        .padding(top = dimen_16dp)
         .fillMaxWidth()
         .clickable {
-            onItemClick(experienceInfo)
+            onItemClick(educationData)
         }) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Image(
-                painter = painterResource(id = experienceInfo.icon),
-                contentDescription = experienceInfo.iconContentDescription,
+                painter = painterResource(id = educationData.icon),
+                contentDescription = educationData.iconContentDescription,
                 modifier = Modifier
-                    .size(dimen_20dp)
+                    .size(dimen_30dp)
                     .clip(CircleShape),
                 contentScale = ContentScale.Crop,
             )
             CustomSpacer(
-                spacerDimens = SpacerDimens.EXTRA_SMALL,
+                spacerDimens = EXTRA_SMALL,
                 spacerOrientation = SpacerOrientation.HORIZONTAL
             )
             Text(
                 fontSize = 16.sp,
                 fontWeight = FontWeight.Bold,
-                text = experienceInfo.companyRole
+                text = educationData.school
             )
         }
         CustomSpacer(
-            spacerDimens = SpacerDimens.MEDIUM,
+            spacerDimens = MEDIUM,
             spacerOrientation = SpacerOrientation.HORIZONTAL
         )
         Text(
             fontSize = 14.sp,
-            text = "${experienceInfo.companyName} · ${experienceInfo.employmentType}",
-            modifier = Modifier.padding(dimen_1dp)
+            text = "${educationData.degree}, ${educationData.fieldOfStudy}",
+            modifier = Modifier.padding(1.dp)
         )
         Text(
-            fontSize = 11.sp,
-            text = "${experienceInfo.startDate} - ${experienceInfo.endDate}",
-            modifier = Modifier.padding(dimen_1dp)
+            fontSize = 12.sp,
+            text = "${educationData.startDate} - ${educationData.endDate}",
+            modifier = Modifier.padding(1.dp)
         )
         Text(
-            fontSize = 11.sp,
-            text = experienceInfo.location,
-            modifier = Modifier.padding(dimen_1dp)
+            fontSize = 13.sp,
+            text = "Grade: ${educationData.grade}",
+            modifier = Modifier.padding(1.dp)
         )
         CustomSpacer(
-            spacerDimens = SpacerDimens.EXTRA_LARGE,
+            spacerDimens = EXTRA_LARGE,
             spacerOrientation = SpacerOrientation.HORIZONTAL
         )
         ExpandableText(
             fontSize = 13.sp,
-            text = experienceInfo.description,
+            text = educationData.description,
             modifier = Modifier.padding(dimen_3dp)
         )
         CustomSpacer(
-            spacerDimens = SpacerDimens.LARGE,
+            spacerDimens = LARGE,
             spacerOrientation = SpacerOrientation.HORIZONTAL
         )
     }
@@ -116,6 +123,6 @@ fun ExperienceInfoItem(experienceInfo: ExperienceData, onItemClick: (ExperienceD
 
 @Preview
 @Composable
-fun PreviewExperienceInfo() {
-    ExperienceInfo()
+fun PreviewEducationInfo() {
+    EducationInfo()
 }

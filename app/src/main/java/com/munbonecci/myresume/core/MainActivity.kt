@@ -12,7 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
 import com.munbonecci.myresume.core.navigation.NavigationGraph
-import com.munbonecci.myresume.presentation.HomeScreen
+import com.munbonecci.myresume.presentation.home_screen.HomeScreen
 import com.munbonecci.myresume.ui.theme.MyResumeTheme
 
 class MainActivity : ComponentActivity() {

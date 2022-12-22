@@ -1,4 +1,4 @@
-package com.munbonecci.myresume.components
+package com.munbonecci.myresume.presentation.home_screen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
@@ -20,6 +20,9 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import com.munbonecci.myresume.R
+import com.munbonecci.myresume.components.CustomSpacer
+import com.munbonecci.myresume.components.SpacerDimens
+import com.munbonecci.myresume.components.SpacerOrientation
 import com.munbonecci.myresume.data.model.CategoryData
 import com.munbonecci.myresume.domain.DataGenerator
 import com.munbonecci.myresume.ui.theme.dimen_16dp
@@ -94,8 +97,7 @@ fun ProfileCategoryItem(categoryData: CategoryData, onItemClick: (CategoryData) 
             }
         }
         CustomSpacer(
-            spacerDimens = SpacerDimens.LARGE,
-            spacerOrientation = SpacerOrientation.HORIZONTAL
+            spacerDimens = SpacerDimens.LARGE, spacerOrientation = SpacerOrientation.HORIZONTAL
         )
     }
 }

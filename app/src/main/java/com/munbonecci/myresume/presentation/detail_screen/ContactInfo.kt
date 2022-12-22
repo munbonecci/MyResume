@@ -1,4 +1,4 @@
-package com.munbonecci.myresume.components
+package com.munbonecci.myresume.presentation.detail_screen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
@@ -6,30 +6,34 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.munbonecci.myresume.data.model.EducationData
+import com.munbonecci.myresume.R
+import com.munbonecci.myresume.components.CustomSpacer
+import com.munbonecci.myresume.components.SpacerDimens
+import com.munbonecci.myresume.components.SpacerOrientation
+import com.munbonecci.myresume.data.model.ContactInfoData
 import com.munbonecci.myresume.domain.DataGenerator
 import com.munbonecci.myresume.presentation.ContactInfoUtils
 import com.munbonecci.myresume.ui.theme.dimen_16dp
-import com.munbonecci.myresume.ui.theme.dimen_30dp
-import com.munbonecci.myresume.ui.theme.dimen_3dp
+import com.munbonecci.myresume.ui.theme.dimen_20dp
 import com.munbonecci.myresume.ui.theme.dimen_5dp
 
 
 @Composable
-fun EducationInfo() {
-    val educationInfoList = DataGenerator(LocalContext.current).educationInfoDataList
+fun ContactInfo() {
+    val contactInfoList = DataGenerator(LocalContext.current).contactInfoDataList
     val context = LocalContext.current
 
     Column(
@@ -42,10 +46,20 @@ fun EducationInfo() {
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.Start
         ) {
-            items(educationInfoList) { education ->
-                EducationInfoItem(education, onItemClick = { data ->
-                    if (data.school.isNotEmpty()) {
-                        ContactInfoUtils.openChromeTabs(context, data.schoolURL)
+            items(contactInfoList) { contactInfo ->
+                ContactInfoItem(contactInfo, onItemClick = { data ->
+                    when (data.type) {
+                        DataGenerator.EMAIL_TYPE -> {
+                            ContactInfoUtils.sendEmail(context)
+                        }
+                        DataGenerator.PHONE_TYPE -> {
+                            ContactInfoUtils.makeCallOrSendWhatsAppMessage(
+                                context, context.getString(R.string.contact_phone)
+                            )
+                        }
+                        DataGenerator.WEB_VIEW_TYPE -> {
+                            ContactInfoUtils.openChromeTabs(context, data.info)
+                        }
                     }
                 })
             }
@@ -54,61 +68,39 @@ fun EducationInfo() {
 }
 
 @Composable
-fun EducationInfoItem(educationData: EducationData, onItemClick: (EducationData) -> Unit) {
+fun ContactInfoItem(contactInfo: ContactInfoData, onItemClick: (ContactInfoData) -> Unit) {
     Column(modifier = Modifier
         .padding(top = dimen_16dp)
         .fillMaxWidth()
         .clickable {
-            onItemClick(educationData)
+            onItemClick(contactInfo)
         }) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Image(
-                painter = painterResource(id = educationData.icon),
-                contentDescription = educationData.iconContentDescription,
+                painter = painterResource(id = contactInfo.icon),
+                contentDescription = contactInfo.iconContentDescription,
                 modifier = Modifier
-                    .size(dimen_30dp)
+                    .size(dimen_20dp)
                     .clip(CircleShape),
                 contentScale = ContentScale.Crop,
+                colorFilter = ColorFilter.tint(color = MaterialTheme.colors.primary)
             )
             CustomSpacer(
                 spacerDimens = SpacerDimens.EXTRA_SMALL,
                 spacerOrientation = SpacerOrientation.HORIZONTAL
             )
-            Text(
-                fontSize = 16.sp,
-                fontWeight = FontWeight.Bold,
-                text = educationData.school
-            )
+            Text(fontSize = 14.sp, text = contactInfo.label)
         }
         CustomSpacer(
             spacerDimens = SpacerDimens.MEDIUM,
             spacerOrientation = SpacerOrientation.HORIZONTAL
         )
         Text(
-            fontSize = 14.sp,
-            text = "${educationData.degree}, ${educationData.fieldOfStudy}",
-            modifier = Modifier.padding(1.dp)
-        )
-        Text(
             fontSize = 12.sp,
-            text = "${educationData.startDate} - ${educationData.endDate}",
-            modifier = Modifier.padding(1.dp)
-        )
-        Text(
-            fontSize = 13.sp,
-            text = "Grade: ${educationData.grade}",
-            modifier = Modifier.padding(1.dp)
-        )
-        CustomSpacer(
-            spacerDimens = SpacerDimens.EXTRA_LARGE,
-            spacerOrientation = SpacerOrientation.HORIZONTAL
-        )
-        ExpandableText(
-            fontSize = 13.sp,
-            text = educationData.description,
-            modifier = Modifier.padding(dimen_3dp)
+            text = contactInfo.info,
+            modifier = Modifier.padding(3.dp)
         )
         CustomSpacer(
             spacerDimens = SpacerDimens.LARGE,
@@ -119,6 +111,6 @@ fun EducationInfoItem(educationData: EducationData, onItemClick: (EducationData)
 
 @Preview
 @Composable
-fun PreviewEducationInfo() {
-    EducationInfo()
+fun PreviewContactInfo() {
+    ContactInfo()
 }

@@ -1,4 +1,4 @@
-package com.munbonecci.myresume.components
+package com.munbonecci.myresume.presentation.home_screen
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -12,6 +12,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import com.munbonecci.myresume.R
+import com.munbonecci.myresume.components.ExpandableText
 import com.munbonecci.myresume.domain.DataGenerator
 import com.munbonecci.myresume.ui.theme.dimen_3dp
 import com.munbonecci.myresume.ui.theme.dimen_5dp
