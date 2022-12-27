@@ -35,10 +35,6 @@ fun HomeScreen(
         CustomSpacer(
             spacerDimens = SpacerDimens.MEDIUM
         )
-        About()
-        CustomSpacer(
-            spacerDimens = SpacerDimens.SMALL
-        )
         ProfileCategories(onCategoryButtonClicked)
         CustomSpacer(
             spacerDimens = SpacerDimens.MEDIUM

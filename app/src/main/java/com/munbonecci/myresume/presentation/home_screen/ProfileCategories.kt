@@ -28,6 +28,7 @@ import com.munbonecci.myresume.domain.DataGenerator
 import com.munbonecci.myresume.ui.theme.dimen_16dp
 import com.munbonecci.myresume.ui.theme.dimen_20dp
 import com.munbonecci.myresume.ui.theme.dimen_4dp
+import com.munbonecci.myresume.ui.theme.dimen_8dp
 
 @Composable
 fun ProfileCategories(onCategoryButtonClicked: (CategoryData) -> Unit) {
@@ -35,8 +36,15 @@ fun ProfileCategories(onCategoryButtonClicked: (CategoryData) -> Unit) {
 
     LazyColumn(
         verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.Start
+        horizontalAlignment = Alignment.Start,
+        modifier = Modifier.padding(bottom = dimen_8dp)
     ) {
+        item {
+            About()
+            CustomSpacer(
+                spacerDimens = SpacerDimens.SMALL
+            )
+        }
         items(categoryInfoList) { categoryInfo ->
             ProfileCategoryItem(categoryInfo, onItemClick = { data ->
                 onCategoryButtonClicked.invoke(data)
