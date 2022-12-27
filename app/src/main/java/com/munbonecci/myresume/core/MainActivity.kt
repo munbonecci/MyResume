@@ -1,15 +1,18 @@
-package com.munbonecci.myresume
+package com.munbonecci.myresume.core
 
+import android.content.res.Configuration
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.rememberNavController
+import com.munbonecci.myresume.core.navigation.NavigationGraph
+import com.munbonecci.myresume.presentation.home_screen.HomeScreen
 import com.munbonecci.myresume.ui.theme.MyResumeTheme
 
 class MainActivity : ComponentActivity() {
@@ -17,12 +20,12 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MyResumeTheme {
-                // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Greeting("Android")
+                    val navController = rememberNavController()
+                    NavigationGraph(navController = navController)
                 }
             }
         }
@@ -30,14 +33,12 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
-
-@Preview(showBackground = true)
-@Composable
+@Preview(name = "light_mode")
+@Preview(name = "dark_mode", uiMode = Configuration.UI_MODE_NIGHT_YES)
 fun DefaultPreview() {
     MyResumeTheme {
-        Greeting("Android")
+        Surface {
+            HomeScreen(onCategoryButtonClicked = {})
+        }
     }
 }

@@ -1,3 +1,41 @@
 <resources>
     <string name="app_name">My Resume</string>
+    <string name="profile_name">Edmundo Bonequi Levine</string>
+    <string name="profile_image_content_description">Edmundo Bonequi Levine profile image</string>
+    <string name="profile_headline">Software Android Engineer</string>
+    <string name="profile_pronouns">(He/Him)</string>
+    <string name="contact_email_label">Email:</string>
+    <string name="contact_email">munbonecci@gmail.com</string>
+    <string name="contact_linkedin_profile_label">LinkedIn profile:</string>
+    <string name="contact_linked_in">https://www.linkedin.com/in/edmundo-roberto-bonequi-levine-51471410a</string>
+    <string name="contact_github_label">Github Profile:</string>
+    <string name="contact_github">https://github.com/munbonecci</string>
+    <string name="contact_phone_label">Phone:</string>
+    <string name="contact_phone">+523314684672</string>
+    <string name="contact_make_a_call">Call me</string>
+    <string name="contact_send_a_whats">Send me a message</string>
+    <string name="email_icon_content_description">Email Icon</string>
+    <string name="phone_icon_content_description">Phone Icon</string>
+    <string name="link_icon_content_description">URL Icon</string>
+    <string name="about_label">About</string>
+    <string name="category_contact_info_label">Contact Info</string>
+    <string name="category_experience_label">Experience</string>
+    <string name="category_education_label">Education</string>
+    <string name="category_languages_label">Languages</string>
+    <string name="category_skills_label">Skills</string>
+    <string name="category_contact_info_content_description">Contact Info Category</string>
+    <string name="category_experience_content_description">Experience Category</string>
+    <string name="category_education_content_description">Education Category</string>
+    <string name="category_languages_content_description">Languages Category</string>
+    <string name="category_skills_content_description">Skills Category</string>
+    <string name="back_button">Back</string>
+    <string name="not_email_app_found_error_msg">"There are no email client installed on your device."</string>
+    <string name="close_button">Close</string>
+    <string name="dismiss_label">"Dismiss"</string>
+    <string name="show_full_resume">Show full resume</string>
+    <string name="resume_feedback_url">https://app.flowcv.com/resume-feedback/jHY-84VUtE6oOxeWN3EF5</string>
+    <string name="comments_feedback_here">Comments and Feedback here</string>
+    <string name="app_info">Application to show information about my professional profile, created in android compose,
+        your comments will help me improve. Thanks for viewing this!</string>
+    <string name="version_label">Version</string>
 </resources>

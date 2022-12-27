@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="coppel_label" tools:ignore="ExtraTranslation">Coppel SA de CV</string>
+    <string name="pegasus_label" tools:ignore="ExtraTranslation">Pegasus control</string>
+    <string name="terra_mapping_label" tools:ignore="ExtraTranslation">TERRAMAPPING® CuboGeoespacial®</string>
+    <string name="baricare_label" tools:ignore="ExtraTranslation">Baricare</string>
+    <string name="coppel_icon" tools:ignore="ExtraTranslation">Coppel SA de CV icon</string>
+    <string name="pegasus_icon" tools:ignore="ExtraTranslation">Pegasus control icon</string>
+    <string name="terra_mapping_icon" tools:ignore="ExtraTranslation">TERRAMAPPING® CuboGeoespacial® icon</string>
+    <string name="baricare_icon" tools:ignore="ExtraTranslation">Baricare  icon</string>
+    <string name="company_role_sr_android">Senior Android Developer</string>
+    <string name="company_role_android">Android Developer</string>
+    <string name="company_role_web">Web Developer</string>
+    <string name="employment_type_full">Full-time</string>
+    <string name="location_label">Location</string>
+    <string name="location_guadalajara">Guadalajara Area, Mexico</string>
+    <string name="location_zapopan">Zapopan Area, Mexico</string>
+    <string name="coppel_url">https://www.coppel.com/</string>
+    <string name="pegasus_url">https://www.pegasus.com.mx/</string>
+    <string name="terra_url">http://terramapping.com.mx/</string>
+</resources>
