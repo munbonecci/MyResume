@@ -21,11 +21,13 @@
     <string name="category_contact_info_label">Contact Info</string>
     <string name="category_experience_label">Experience</string>
     <string name="category_education_label">Education</string>
+    <string name="category_technology_stack_label">Technology Stack</string>
     <string name="category_languages_label">Languages</string>
     <string name="category_skills_label">Skills</string>
     <string name="category_contact_info_content_description">Contact Info Category</string>
     <string name="category_experience_content_description">Experience Category</string>
     <string name="category_education_content_description">Education Category</string>
+    <string name="category_technology_stack_description">Technology Stack</string>
     <string name="category_languages_content_description">Languages Category</string>
     <string name="category_skills_content_description">Skills Category</string>
     <string name="back_button">Back</string>
