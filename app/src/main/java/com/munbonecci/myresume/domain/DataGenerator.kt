@@ -63,6 +63,12 @@ class DataGenerator(currentContext: Context) {
             type = CATEGORY_SKILLS
         ),
         CategoryData(
+            label = currentContext.getString(R.string.category_technology_stack_label),
+            icon = R.drawable.ic_baseline_memory_24,
+            iconContentDescription = currentContext.getString(R.string.category_technology_stack_description),
+            type = CATEGORY_TECH_STACK
+        ),
+        CategoryData(
             label = currentContext.getString(R.string.category_languages_label),
             icon = R.drawable.ic_baseline_language_24,
             iconContentDescription = currentContext.getString(R.string.category_languages_content_description),
@@ -163,6 +169,78 @@ class DataGenerator(currentContext: Context) {
         LanguageData(name = SPANISH_LANGUAGE, percentage = 100),
     )
 
+    val projectStackDataList: List<TechStackData>
+        get() = listOf(
+            TechStackData(AZURE_DEV_OPS_TECH, category = PROJECT_MANAGEMENT_TECH_CATEGORY),
+            TechStackData(TRELLO_TECH, category = PROJECT_MANAGEMENT_TECH_CATEGORY),
+            TechStackData(JIRA_TECH, category = PROJECT_MANAGEMENT_TECH_CATEGORY),
+        )
+
+    val developmentStackDataList: List<TechStackData>
+        get() = listOf(
+            TechStackData(ANDROID_STUDIO_TECH, category = DEVELOPMENT_TOOLS_TECH_CATEGORY),
+            TechStackData(VISUAL_STUDIO_CODE, category = DEVELOPMENT_TOOLS_TECH_CATEGORY),
+            TechStackData(INTELLIJ_IDEA_TECH, category = DEVELOPMENT_TOOLS_TECH_CATEGORY),
+        )
+
+    val androidToolsStackDataList: List<TechStackData>
+        get() = listOf(
+            TechStackData(FIREBASE_TOOLS_TECH, category = ANDROID_TOOLS_TECH_CATEGORY),
+            TechStackData(RETROFIT_TECH, category = ANDROID_TOOLS_TECH_CATEGORY),
+            TechStackData(LOTTIE_TECH, category = ANDROID_TOOLS_TECH_CATEGORY),
+            TechStackData(IMAGES_TECH, category = ANDROID_TOOLS_TECH_CATEGORY),
+            TechStackData(DAGGER_HILT_TECH, category = ANDROID_TOOLS_TECH_CATEGORY),
+            TechStackData(COROUTINES_TECH, category = ANDROID_TOOLS_TECH_CATEGORY),
+            TechStackData(ONE_SIGNAL_TECH, category = ANALYTICS_TECH_CATEGORY),
+            TechStackData(GOOGLE_MAPS_TECH, category = ANALYTICS_TECH_CATEGORY),
+            TechStackData(BEACONS_TECH, category = ANALYTICS_TECH_CATEGORY)
+        )
+
+    val uiFrameworksStackDataList: List<TechStackData>
+        get() = listOf(
+            TechStackData(ANDROID_UI_TECH, category = UI_FRAMEWORKS_TECH_CATEGORY),
+            TechStackData(JETPACK_COMPOSE_TECH, category = UI_FRAMEWORKS_TECH_CATEGORY),
+        )
+
+    val designToolsStackDataList: List<TechStackData>
+        get() = listOf(
+            TechStackData(FIGMA_TECH, category = DESIGN_TOOLS_TECH_CATEGORY),
+            TechStackData(ZEPLIN_TECH, category = DESIGN_TOOLS_TECH_CATEGORY),
+            TechStackData(GOOGLE_GALLERY_TECH, category = DESIGN_TOOLS_TECH_CATEGORY)
+        )
+
+    val databaseStackDataList: List<TechStackData>
+        get() = listOf(
+            TechStackData(DATABASE_TECH, category = DATABASE_TECH_CATEGORY),
+            TechStackData(SQL_TECH, category = DESIGN_TOOLS_TECH_CATEGORY)
+        )
+
+    val versionControlStackDataList: List<TechStackData>
+        get() = listOf(
+            TechStackData(GITHUB_TECH, category = VERSION_CONTROL_SYSTEM_TECH_CATEGORY),
+            TechStackData(GITLAB_TECH, category = VERSION_CONTROL_SYSTEM_TECH_CATEGORY),
+            TechStackData(AZURE_REPO_TECH, category = VERSION_CONTROL_SYSTEM_TECH_CATEGORY)
+        )
+
+    val releaseStackDataList: List<TechStackData>
+        get() = listOf(
+            TechStackData(PLAY_STORE_TECH, category = RELEASE_MANAGEMENT_TECH_CATEGORY),
+            TechStackData(HUAWEI_GALLERY_TECH, category = RELEASE_MANAGEMENT_TECH_CATEGORY)
+        )
+
+    val analyticsStackDataList: List<TechStackData>
+        get() = listOf(
+            TechStackData(FIREBASE_ANALYTICS_TECH, category = ANALYTICS_TECH_CATEGORY),
+            TechStackData(SAS_TECH, category = ANALYTICS_TECH_CATEGORY),
+            TechStackData(MEDAL_LIA_TECH, category = ANALYTICS_TECH_CATEGORY)
+        )
+
+    val othersStackDataList: List<TechStackData>
+        get() = listOf(
+            TechStackData(SLACK_TECH, category = OTHER_TOOLS_TECH_CATEGORY),
+            TechStackData(PROXY_MAN_TECH, category = OTHER_TOOLS_TECH_CATEGORY)
+        )
+
     companion object {
         const val EMAIL_TYPE = 1
         const val PHONE_TYPE = 2
@@ -172,7 +250,9 @@ class DataGenerator(currentContext: Context) {
         const val CATEGORY_EXPERIENCE = 2
         const val CATEGORY_EDUCATION = 3
         const val CATEGORY_SKILLS = 4
-        const val CATEGORY_LANGUAGES = 5
+        const val CATEGORY_TECH_STACK = 5
+        const val CATEGORY_LANGUAGES = 6
+
 
         const val ABOUT_INFO =
             "Experienced Android Developer with a demonstrated history of working in e-commerce," +

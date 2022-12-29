@@ -38,6 +38,9 @@ fun CategoryDetailScreen(onBackButtonClicked: () -> Unit, type: String?, name: S
                 DataGenerator.CATEGORY_SKILLS -> {
                     SkillInfo()
                 }
+                DataGenerator.CATEGORY_TECH_STACK -> {
+                    TechnologyStackInfo()
+                }
                 DataGenerator.CATEGORY_LANGUAGES -> {
                     LanguageInfo()
                 }

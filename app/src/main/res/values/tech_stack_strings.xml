@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="project_management_label">Project management</string>
+    <string name="development_tools_label">Development tools</string>
+    <string name="android_tools_label">Android tools</string>
+    <string name="ui_framework_label">UI frameworks</string>
+    <string name="design_tools_label">Design tools</string>
+    <string name="database_label">Databases</string>
+    <string name="version_control_label">Version control tools</string>
+    <string name="release_management_label">Release management</string>
+    <string name="analytics_tools_label">Analytics tools</string>
+    <string name="other_tools_label">Other tools</string>
+    <string name="bullet">\u25CF</string>
+</resources>
