@@ -151,6 +151,35 @@ class DataGenerator(currentContext: Context) {
         )
     )
 
+    val courseInfoDataList = listOf(
+        EducationData(
+            school = currentContext.getString(R.string.wizeline_academy_school),
+            degree = currentContext.getString(R.string.animation_degree),
+            grade = "",
+            fieldOfStudy = currentContext.getString(R.string.android_course),
+            location = currentContext.getString(R.string.location_zapopan),
+            description = currentContext.getString(R.string.animation_course_description),
+            startDate = currentContext.getString(R.string.may_2022),
+            endDate = currentContext.getString(R.string.may_2022),
+            schoolURL = currentContext.getString(R.string.wizeline_academy_url),
+            icon = R.drawable.wizeline_academy_icon,
+            iconContentDescription = currentContext.getString(R.string.wizeline_academy_icon)
+        ),
+        EducationData(
+            school = currentContext.getString(R.string.wizeline_academy_school),
+            degree = currentContext.getString(R.string.jetpack_degree),
+            grade = "",
+            fieldOfStudy = currentContext.getString(R.string.android_course),
+            location = currentContext.getString(R.string.location_zapopan),
+            description = currentContext.getString(R.string.jetpack_course_description),
+            startDate = currentContext.getString(R.string.apr_2022),
+            endDate = currentContext.getString(R.string.apr_2022),
+            schoolURL = currentContext.getString(R.string.wizeline_academy_url),
+            icon = R.drawable.wizeline_academy_icon,
+            iconContentDescription = currentContext.getString(R.string.wizeline_academy_icon)
+        )
+    )
+
     val skillInfoDataList = listOf(
         SkillData(name = ANDROID_DEVELOPMENT_SKILL, percentage = 90),
         SkillData(name = KOTLIN_SKILL, percentage = 90),

@@ -8,4 +8,19 @@
     <string name="school_start_date">2012</string>
     <string name="school_end_date">2017</string>
     <string name="school_url">https://tecmm.edu.mx/quienesSomos</string>
+    <string name="wizeline_academy_school">Wizeline Academy</string>
+    <string name="wizeline_academy_icon">Wizeline Academy icon</string>
+    <string name="wizeline_academy_url">https://academy.wizeline.com</string>
+    <string name="animation_degree">Wizeline Academy Android Animations Workshop</string>
+    <string name="jetpack_degree">Wizeline Academy JetPack Compose 101 Workshop</string>
+    <string name="animation_course_description">Learn from experienced Wizeline engineers how to create animations through the native framework in an efficient way.</string>
+    <string name="jetpack_course_description">Jetpack Compose is an important tool shaping the future of native mobile application development
+        with Android. Learning this modern, powerful technology will help developers stay up to date and facilitate accelerated,
+        simplified interface development. Workshop participants will gain hands-on experience with Jetpack Compose, enabling them
+        to reduce and reuse code in a more efficient way and to support their own applications with this toolkit.</string>
+    <string name="android_course">Android Course</string>
+    <string name="may_2022">May 2022</string>
+    <string name="apr_2022">Apr 2022</string>
+    <string name="education_school">School</string>
+    <string name="education_course">Courses</string>
 </resources>
