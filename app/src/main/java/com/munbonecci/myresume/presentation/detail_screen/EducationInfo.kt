@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -14,10 +15,12 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.munbonecci.myresume.R
 import com.munbonecci.myresume.components.CustomSpacer
 import com.munbonecci.myresume.components.ExpandableText
 import com.munbonecci.myresume.components.SpacerDimens.*
@@ -34,6 +37,7 @@ import com.munbonecci.myresume.ui.theme.dimen_5dp
 @Composable
 fun EducationInfo() {
     val educationInfoList = DataGenerator(LocalContext.current).educationInfoDataList
+    val courseInfoList = DataGenerator(LocalContext.current).courseInfoDataList
     val context = LocalContext.current
 
     Column(
@@ -46,8 +50,32 @@ fun EducationInfo() {
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.Start
         ) {
+            item {
+                Text(
+                    color = MaterialTheme.colors.primary,
+                    fontSize = 18.sp,
+                    style = MaterialTheme.typography.h4,
+                    text = stringResource(id = R.string.education_school)
+                )
+            }
             items(educationInfoList) { education ->
                 EducationInfoItem(education, onItemClick = { data ->
+                    if (data.school.isNotEmpty()) {
+                        ContactInfoUtils.openChromeTabs(context, data.schoolURL)
+                    }
+                })
+            }
+            item {
+                Text(
+                    modifier = Modifier.padding(top = dimen_16dp),
+                    color = MaterialTheme.colors.primary,
+                    fontSize = 18.sp,
+                    style = MaterialTheme.typography.h4,
+                    text = stringResource(id = R.string.education_course)
+                )
+            }
+            items(courseInfoList) { course ->
+                EducationInfoItem(course, onItemClick = { data ->
                     if (data.school.isNotEmpty()) {
                         ContactInfoUtils.openChromeTabs(context, data.schoolURL)
                     }
@@ -100,11 +128,13 @@ fun EducationInfoItem(educationData: EducationData, onItemClick: (EducationData)
             text = "${educationData.startDate} - ${educationData.endDate}",
             modifier = Modifier.padding(1.dp)
         )
-        Text(
-            fontSize = 13.sp,
-            text = "Grade: ${educationData.grade}",
-            modifier = Modifier.padding(1.dp)
-        )
+        if (educationData.grade.isNotEmpty()) {
+            Text(
+                fontSize = 13.sp,
+                text = "Grade: ${educationData.grade}",
+                modifier = Modifier.padding(1.dp)
+            )
+        }
         CustomSpacer(
             spacerDimens = EXTRA_LARGE,
             spacerOrientation = SpacerOrientation.HORIZONTAL
