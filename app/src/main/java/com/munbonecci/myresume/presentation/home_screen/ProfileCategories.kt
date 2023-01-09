@@ -15,7 +15,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
@@ -24,15 +23,18 @@ import com.munbonecci.myresume.components.CustomSpacer
 import com.munbonecci.myresume.components.SpacerDimens
 import com.munbonecci.myresume.components.SpacerOrientation
 import com.munbonecci.myresume.data.model.CategoryData
-import com.munbonecci.myresume.domain.DataGenerator
+import com.munbonecci.myresume.presentation.ProfileUIState
 import com.munbonecci.myresume.ui.theme.dimen_16dp
 import com.munbonecci.myresume.ui.theme.dimen_20dp
 import com.munbonecci.myresume.ui.theme.dimen_4dp
 import com.munbonecci.myresume.ui.theme.dimen_8dp
 
 @Composable
-fun ProfileCategories(onCategoryButtonClicked: (CategoryData) -> Unit) {
-    val categoryInfoList = DataGenerator(LocalContext.current).categoryInfoDataList
+fun ProfileCategories(
+    onCategoryButtonClicked: (CategoryData) -> Unit,
+    profileData: ProfileUIState
+) {
+    val categoryInfoList = profileData.profile.categories
 
     LazyColumn(
         verticalArrangement = Arrangement.Center,
@@ -40,7 +42,7 @@ fun ProfileCategories(onCategoryButtonClicked: (CategoryData) -> Unit) {
         modifier = Modifier.padding(bottom = dimen_8dp)
     ) {
         item {
-            About()
+            About(aboutInfo = profileData.profile.aboutInfo)
             CustomSpacer(
                 spacerDimens = SpacerDimens.SMALL
             )
@@ -113,5 +115,5 @@ fun ProfileCategoryItem(categoryData: CategoryData, onItemClick: (CategoryData) 
 @Preview
 @Composable
 fun PreviewProfileCategories() {
-    ProfileCategories(onCategoryButtonClicked = {})
+    ProfileCategories(onCategoryButtonClicked = {}, profileData = ProfileUIState())
 }

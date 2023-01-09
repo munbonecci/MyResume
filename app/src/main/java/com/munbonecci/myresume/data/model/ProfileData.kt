@@ -7,7 +7,9 @@ data class ProfileData(
     val profileIconContentDescription: String = "",
     val profileName: String = "",
     val headline: String = "",
-    val profileDialogData: ProfileDialogData = ProfileDialogData()
+    val aboutInfo: String = "",
+    val profileDialogData: ProfileDialogData = ProfileDialogData(),
+    val categories: List<CategoryData> = arrayListOf()
 ) {
     override fun toString(): String = profileName
 }

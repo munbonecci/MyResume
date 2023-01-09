@@ -4,13 +4,14 @@ import android.content.Context
 import com.munbonecci.myresume.R
 import com.munbonecci.myresume.data.model.*
 
-class DataGenerator(currentContext: Context) {
+class DataGenerator(private val currentContext: Context) {
 
     val profileData = ProfileData(
         profileIcon = R.drawable.profile_image,
         profileIconContentDescription = currentContext.getString(R.string.profile_image_content_description),
         profileName = currentContext.getString(R.string.profile_name),
         headline = currentContext.getString(R.string.profile_headline),
+        aboutInfo = ABOUT_INFO,
         profileDialogData = ProfileDialogData(
             profileName = currentContext.getString(R.string.profile_name),
             headline = currentContext.getString(R.string.profile_headline),
@@ -20,7 +21,8 @@ class DataGenerator(currentContext: Context) {
             email = currentContext.getString(R.string.contact_email),
             profileIcon = R.drawable.profile_image,
             profileIconContentDescription = currentContext.getString(R.string.profile_image_content_description)
-        )
+        ),
+        categories = categoryInfoDataList
     )
 
     val contactInfoDataList = listOf(
@@ -54,44 +56,45 @@ class DataGenerator(currentContext: Context) {
         ),
     )
 
-    val categoryInfoDataList = listOf(
-        CategoryData(
-            label = currentContext.getString(R.string.category_contact_info_label),
-            icon = R.drawable.ic_baseline_account_box_24,
-            iconContentDescription = currentContext.getString(R.string.category_contact_info_content_description),
-            type = CATEGORY_CONTACT_INFO
-        ),
-        CategoryData(
-            label = currentContext.getString(R.string.category_experience_label),
-            icon = R.drawable.ic_baseline_work_24,
-            iconContentDescription = currentContext.getString(R.string.category_experience_content_description),
-            type = CATEGORY_EXPERIENCE
-        ),
-        CategoryData(
-            label = currentContext.getString(R.string.category_education_label),
-            icon = R.drawable.ic_baseline_school_24,
-            iconContentDescription = currentContext.getString(R.string.category_education_content_description),
-            type = CATEGORY_EDUCATION
-        ),
-        CategoryData(
-            label = currentContext.getString(R.string.category_skills_label),
-            icon = R.drawable.ic_baseline_psychology_24,
-            iconContentDescription = currentContext.getString(R.string.category_skills_content_description),
-            type = CATEGORY_SKILLS
-        ),
-        CategoryData(
-            label = currentContext.getString(R.string.category_technology_stack_label),
-            icon = R.drawable.ic_baseline_memory_24,
-            iconContentDescription = currentContext.getString(R.string.category_technology_stack_description),
-            type = CATEGORY_TECH_STACK
-        ),
-        CategoryData(
-            label = currentContext.getString(R.string.category_languages_label),
-            icon = R.drawable.ic_baseline_language_24,
-            iconContentDescription = currentContext.getString(R.string.category_languages_content_description),
-            type = CATEGORY_LANGUAGES
+    val categoryInfoDataList: List<CategoryData>
+        get() = listOf(
+            CategoryData(
+                label = currentContext.getString(R.string.category_contact_info_label),
+                icon = R.drawable.ic_baseline_account_box_24,
+                iconContentDescription = currentContext.getString(R.string.category_contact_info_content_description),
+                type = CATEGORY_CONTACT_INFO
+            ),
+            CategoryData(
+                label = currentContext.getString(R.string.category_experience_label),
+                icon = R.drawable.ic_baseline_work_24,
+                iconContentDescription = currentContext.getString(R.string.category_experience_content_description),
+                type = CATEGORY_EXPERIENCE
+            ),
+            CategoryData(
+                label = currentContext.getString(R.string.category_education_label),
+                icon = R.drawable.ic_baseline_school_24,
+                iconContentDescription = currentContext.getString(R.string.category_education_content_description),
+                type = CATEGORY_EDUCATION
+            ),
+            CategoryData(
+                label = currentContext.getString(R.string.category_skills_label),
+                icon = R.drawable.ic_baseline_psychology_24,
+                iconContentDescription = currentContext.getString(R.string.category_skills_content_description),
+                type = CATEGORY_SKILLS
+            ),
+            CategoryData(
+                label = currentContext.getString(R.string.category_technology_stack_label),
+                icon = R.drawable.ic_baseline_memory_24,
+                iconContentDescription = currentContext.getString(R.string.category_technology_stack_description),
+                type = CATEGORY_TECH_STACK
+            ),
+            CategoryData(
+                label = currentContext.getString(R.string.category_languages_label),
+                icon = R.drawable.ic_baseline_language_24,
+                iconContentDescription = currentContext.getString(R.string.category_languages_content_description),
+                type = CATEGORY_LANGUAGES
+            )
         )
-    )
 
     val experienceInfoDataList = listOf(
         ExperienceData(

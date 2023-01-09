@@ -50,7 +50,7 @@ fun HomeScreen(
         CustomSpacer(
             spacerDimens = SpacerDimens.MEDIUM
         )
-        ProfileCategories(onCategoryButtonClicked)
+        ProfileCategories(onCategoryButtonClicked, profileData)
         CustomSpacer(
             spacerDimens = SpacerDimens.MEDIUM
         )
