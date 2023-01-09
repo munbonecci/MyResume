@@ -24,11 +24,17 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import com.munbonecci.myresume.R
+import com.munbonecci.myresume.data.model.ProfileDialogData
 import com.munbonecci.myresume.presentation.ContactInfoUtils
 import com.munbonecci.myresume.ui.theme.*
 
 @Composable
-fun ProfileImage(modifier: Modifier = Modifier) {
+fun ProfileImage(
+    modifier: Modifier = Modifier,
+    profileImage: Int = R.mipmap.ic_launcher,
+    imageDescription: String = "",
+    profileDialogData: ProfileDialogData = ProfileDialogData()
+) {
     Surface(
         modifier = Modifier
             .size(dimen_120dp)
@@ -41,12 +47,12 @@ fun ProfileImage(modifier: Modifier = Modifier) {
         val showProfileDialog = remember { mutableStateOf(false) }
 
         if (showProfileDialog.value) {
-            OnProfileImagePressed(showProfileDialog)
+            OnProfileImagePressed(showProfileDialog, profileDialogData)
         }
 
         Image(
-            painter = painterResource(id = R.drawable.profile_image),
-            contentDescription = stringResource(id = R.string.profile_image_content_description),
+            painter = painterResource(id = profileImage),
+            contentDescription = imageDescription,
             modifier = modifier
                 .size(135.dp)
                 .clickable(
@@ -62,19 +68,23 @@ fun ProfileImage(modifier: Modifier = Modifier) {
 }
 
 @Composable
-fun OnProfileImagePressed(showProfileDialog: MutableState<Boolean>) {
+fun OnProfileImagePressed(
+    showProfileDialog: MutableState<Boolean>,
+    profileDialogData: ProfileDialogData
+) {
     Dialog(onDismissRequest = { showProfileDialog.value = false }) {
-        CustomDialogUI(showProfileDialog = showProfileDialog)
+        CustomDialogUI(showProfileDialog = showProfileDialog, profileDialogData = profileDialogData)
     }
 }
 
 @Composable
 private fun CustomDialogUI(
     modifier: Modifier = Modifier,
-    showProfileDialog: MutableState<Boolean>
+    showProfileDialog: MutableState<Boolean>,
+    profileDialogData: ProfileDialogData
 ) {
     val context = LocalContext.current
-    val resume = stringResource(id = R.string.resume_feedback_url)
+
     Card(
         shape = RoundedCornerShape(dimen_10dp),
         modifier = Modifier.padding(dimen_10dp, dimen_5dp, dimen_10dp, dimen_10dp),
@@ -113,15 +123,15 @@ private fun CustomDialogUI(
                     color = MaterialTheme.colors.onSurface.copy(alpha = 0.5f)
                 ) {
                     Image(
-                        painter = painterResource(id = R.drawable.profile_image),
-                        contentDescription = stringResource(id = R.string.profile_image_content_description),
+                        painter = painterResource(id = profileDialogData.profileIcon),
+                        contentDescription = profileDialogData.profileIconContentDescription,
                         modifier = Modifier
                             .size(dimen_60dp),
                         contentScale = ContentScale.Crop
                     )
                 }
                 Text(
-                    text = stringResource(id = R.string.profile_name),
+                    text = profileDialogData.profileName,
                     modifier = Modifier
                         .padding(top = dimen_2dp)
                         .align(Alignment.CenterHorizontally),
@@ -130,7 +140,7 @@ private fun CustomDialogUI(
                     textAlign = TextAlign.Center
                 )
                 Text(
-                    text = stringResource(id = R.string.profile_headline),
+                    text = profileDialogData.headline,
                     modifier = Modifier
                         .padding(top = dimen_2dp)
                         .align(Alignment.CenterHorizontally),
@@ -139,19 +149,19 @@ private fun CustomDialogUI(
                 )
                 Text(
                     "${stringResource(id = R.string.location_label)}:" +
-                            " ${stringResource(id = R.string.location_zapopan)}",
+                            " ${profileDialogData.location}",
                     fontSize = 11.sp,
                     modifier = Modifier
                         .padding(top = dimen_4dp)
                 )
                 Text(
                     stringResource(id = R.string.contact_phone_label) +
-                            " ${stringResource(id = R.string.contact_phone)}",
+                            " ${profileDialogData.phone}",
                     fontSize = 11.sp
                 )
                 Text(
                     stringResource(id = R.string.contact_email_label) +
-                            " ${stringResource(id = R.string.contact_email)}",
+                            " ${profileDialogData.email}",
                     fontSize = 11.sp
                 )
                 Row(
@@ -162,7 +172,7 @@ private fun CustomDialogUI(
                         modifier = Modifier.fillMaxWidth(),
                         onClick = {
                             showProfileDialog.value = false
-                            ContactInfoUtils.openChromeTabs(context, resume)
+                            ContactInfoUtils.openChromeTabs(context, profileDialogData.resumeURL)
                         }
                     ) {
                         Text(text = stringResource(id = R.string.show_full_resume))

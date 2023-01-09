@@ -6,6 +6,23 @@ import com.munbonecci.myresume.data.model.*
 
 class DataGenerator(currentContext: Context) {
 
+    val profileData = ProfileData(
+        profileIcon = R.drawable.profile_image,
+        profileIconContentDescription = currentContext.getString(R.string.profile_image_content_description),
+        profileName = currentContext.getString(R.string.profile_name),
+        headline = currentContext.getString(R.string.profile_headline),
+        profileDialogData = ProfileDialogData(
+            profileName = currentContext.getString(R.string.profile_name),
+            headline = currentContext.getString(R.string.profile_headline),
+            resumeURL = currentContext.getString(R.string.resume_feedback_url),
+            location = currentContext.getString(R.string.location_zapopan),
+            phone = currentContext.getString(R.string.contact_phone),
+            email = currentContext.getString(R.string.contact_email),
+            profileIcon = R.drawable.profile_image,
+            profileIconContentDescription = currentContext.getString(R.string.profile_image_content_description)
+        )
+    )
+
     val contactInfoDataList = listOf(
         ContactInfoData(
             label = currentContext.getString(R.string.contact_email_label),

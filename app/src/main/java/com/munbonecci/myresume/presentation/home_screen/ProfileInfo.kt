@@ -8,20 +8,14 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
-import com.munbonecci.myresume.R
 import com.munbonecci.myresume.ui.theme.dimen_3dp
 import com.munbonecci.myresume.ui.theme.dimen_5dp
 
 
 @Composable
 fun ProfileInfo(profileName: String = "", headline: String = "") {
-    val profile =
-        profileName.ifEmpty { stringResource(id = R.string.profile_name) }
-    val headLine =
-        headline.ifEmpty { stringResource(id = R.string.profile_headline) }
 
     Column(
         modifier = Modifier.padding(dimen_5dp),
@@ -32,10 +26,10 @@ fun ProfileInfo(profileName: String = "", headline: String = "") {
             color = MaterialTheme.colors.primary,
             fontSize = 24.sp,
             style = MaterialTheme.typography.h4,
-            text = profile
+            text = profileName
         )
         Text(
-            text = headLine,
+            text = headline,
             modifier = Modifier.padding(dimen_3dp)
         )
     }

@@ -6,18 +6,26 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.munbonecci.myresume.components.CustomSpacer
 import com.munbonecci.myresume.components.SpacerDimens
 import com.munbonecci.myresume.data.model.CategoryData
+import com.munbonecci.myresume.presentation.ProfileViewModel
 import com.munbonecci.myresume.ui.theme.MyResumeTheme
 import com.munbonecci.myresume.ui.theme.dimen_16dp
 
 @Composable
 fun HomeScreen(
-    onCategoryButtonClicked: (CategoryData) -> Unit
+    onCategoryButtonClicked: (CategoryData) -> Unit,
+    viewModel: ProfileViewModel = hiltViewModel()
 ) {
+    viewModel.getProfileInfo()
+    val profileData by viewModel.uiProfileState.collectAsState()
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -27,11 +35,18 @@ fun HomeScreen(
         CustomSpacer(
             spacerDimens = SpacerDimens.MEDIUM
         )
-        ProfileImage()
+        ProfileImage(
+            profileImage = profileData.profile.profileIcon,
+            imageDescription = profileData.profile.profileIconContentDescription,
+            profileDialogData = profileData.profile.profileDialogData
+        )
         CustomSpacer(
             spacerDimens = SpacerDimens.MEDIUM
         )
-        ProfileInfo()
+        ProfileInfo(
+            profileName = profileData.profile.profileName,
+            headline = profileData.profile.headline
+        )
         CustomSpacer(
             spacerDimens = SpacerDimens.MEDIUM
         )
