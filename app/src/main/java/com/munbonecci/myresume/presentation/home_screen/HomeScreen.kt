@@ -23,7 +23,6 @@ fun HomeScreen(
     onCategoryButtonClicked: (CategoryData) -> Unit,
     viewModel: ProfileViewModel = hiltViewModel()
 ) {
-    viewModel.getProfileInfo()
     val profileData by viewModel.uiProfileState.collectAsState()
 
     Column(

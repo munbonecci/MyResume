@@ -15,7 +15,11 @@ class ProfileViewModel @Inject constructor(private val getProfileUseCase: Profil
     private val _uiProfileState = MutableStateFlow(ProfileUIState())
     val uiProfileState: StateFlow<ProfileUIState> = _uiProfileState.asStateFlow()
 
-    fun getProfileInfo() {
+    init {
+        getProfileInfo()
+    }
+
+    private fun getProfileInfo() {
         getProfileUseCase().onEach { result ->
             when (result) {
                 is Resource.Error -> {
