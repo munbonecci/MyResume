@@ -13,13 +13,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import com.munbonecci.myresume.R
 import com.munbonecci.myresume.components.ExpandableText
-import com.munbonecci.myresume.domain.DataGenerator
 import com.munbonecci.myresume.ui.theme.dimen_3dp
 import com.munbonecci.myresume.ui.theme.dimen_5dp
 
 
 @Composable
-fun About() {
+fun About(aboutInfo: String = "") {
     Column(
         modifier = Modifier.padding(dimen_5dp),
         verticalArrangement = Arrangement.Center,
@@ -33,7 +32,7 @@ fun About() {
         )
         ExpandableText(
             fontSize = 12.sp,
-            text = DataGenerator.ABOUT_INFO,
+            text = aboutInfo,
             modifier = Modifier.padding(dimen_3dp)
         )
     }

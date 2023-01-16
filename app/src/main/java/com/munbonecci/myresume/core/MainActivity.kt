@@ -14,7 +14,9 @@ import androidx.navigation.compose.rememberNavController
 import com.munbonecci.myresume.core.navigation.NavigationGraph
 import com.munbonecci.myresume.presentation.home_screen.HomeScreen
 import com.munbonecci.myresume.ui.theme.MyResumeTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
