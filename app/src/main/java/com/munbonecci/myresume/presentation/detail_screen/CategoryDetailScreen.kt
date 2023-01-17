@@ -15,43 +15,45 @@ import com.munbonecci.myresume.ui.theme.MyResumeTheme
 @Composable
 fun CategoryDetailScreen(
     onBackButtonClicked: () -> Unit,
-    type: String = "0",
+    type: String?,
     name: String?,
     viewModel: CategoryDetailViewModel = hiltViewModel()
 ) {
     val currentScreen = "Category"
-    viewModel.getCategorySelectedData(type.toIntOrNull() ?: 0)
-    val categoryDetailData = viewModel.uiCategoryDetailState.collectAsState()
+    type?.let { id ->
+        viewModel.getCategorySelectedData(id.toIntOrNull() ?: 0)
+        val categoryDetailData = viewModel.uiCategoryDetailState.collectAsState()
 
-    Scaffold(
-        topBar = {
-            AppBar(
-                currentScreen = name ?: currentScreen,
-                canNavigateBack = true,
-                navigateUp = { onBackButtonClicked.invoke() }
-            )
-        }
-    ) { innerPadding ->
-        Log.d("", innerPadding.toString())
-        type.let { categoryId ->
-            when (categoryId.toIntOrNull() ?: 0) {
-                DataGenerator.CATEGORY_CONTACT_INFO -> {
-                    ContactInfo()
-                }
-                DataGenerator.CATEGORY_EXPERIENCE -> {
-                    ExperienceInfo()
-                }
-                DataGenerator.CATEGORY_EDUCATION -> {
-                    EducationInfo()
-                }
-                DataGenerator.CATEGORY_SKILLS -> {
-                    SkillInfo()
-                }
-                DataGenerator.CATEGORY_TECH_STACK -> {
-                    TechnologyStackInfo()
-                }
-                DataGenerator.CATEGORY_LANGUAGES -> {
-                    LanguageInfo()
+        Scaffold(
+            topBar = {
+                AppBar(
+                    currentScreen = name ?: currentScreen,
+                    canNavigateBack = true,
+                    navigateUp = { onBackButtonClicked.invoke() }
+                )
+            }
+        ) { innerPadding ->
+            Log.d("", innerPadding.toString())
+            id.let { categoryId ->
+                when (categoryId.toIntOrNull() ?: 0) {
+                    DataGenerator.CATEGORY_CONTACT_INFO -> {
+                        ContactInfo()
+                    }
+                    DataGenerator.CATEGORY_EXPERIENCE -> {
+                        ExperienceInfo()
+                    }
+                    DataGenerator.CATEGORY_EDUCATION -> {
+                        EducationInfo()
+                    }
+                    DataGenerator.CATEGORY_SKILLS -> {
+                        SkillInfo()
+                    }
+                    DataGenerator.CATEGORY_TECH_STACK -> {
+                        TechnologyStackInfo()
+                    }
+                    DataGenerator.CATEGORY_LANGUAGES -> {
+                        LanguageInfo()
+                    }
                 }
             }
         }

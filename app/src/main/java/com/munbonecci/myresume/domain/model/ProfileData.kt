@@ -1,6 +1,7 @@
-package com.munbonecci.myresume.data.model
+package com.munbonecci.myresume.domain.model
 
 import com.munbonecci.myresume.R
+import com.munbonecci.myresume.data.model.CategoryData
 
 data class ProfileData(
     val profileIcon: Int = R.mipmap.ic_launcher,

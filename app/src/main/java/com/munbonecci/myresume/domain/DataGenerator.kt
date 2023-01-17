@@ -3,6 +3,8 @@ package com.munbonecci.myresume.domain
 import android.content.Context
 import com.munbonecci.myresume.R
 import com.munbonecci.myresume.data.model.*
+import com.munbonecci.myresume.domain.model.ProfileData
+import com.munbonecci.myresume.domain.model.ProfileDialogData
 
 class DataGenerator(private val currentContext: Context) {
 

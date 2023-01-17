@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.munbonecci.myresume.commons.Resource
 import com.munbonecci.myresume.data.model.Error
+import com.munbonecci.myresume.domain.model.CategoryDetailUIState
 import com.munbonecci.myresume.domain.use_case.CategoryDetailUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*

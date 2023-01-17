@@ -23,7 +23,7 @@ import com.munbonecci.myresume.components.CustomSpacer
 import com.munbonecci.myresume.components.SpacerDimens
 import com.munbonecci.myresume.components.SpacerOrientation
 import com.munbonecci.myresume.data.model.CategoryData
-import com.munbonecci.myresume.presentation.ProfileUIState
+import com.munbonecci.myresume.domain.model.ProfileUIState
 import com.munbonecci.myresume.ui.theme.dimen_16dp
 import com.munbonecci.myresume.ui.theme.dimen_20dp
 import com.munbonecci.myresume.ui.theme.dimen_4dp

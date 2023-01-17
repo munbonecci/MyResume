@@ -1,7 +1,6 @@
-package com.munbonecci.myresume.presentation
+package com.munbonecci.myresume.domain.model
 
 import com.munbonecci.myresume.data.model.Error
-import com.munbonecci.myresume.data.model.ProfileData
 
 data class ProfileUIState(
     val isLoading: Boolean = false,
