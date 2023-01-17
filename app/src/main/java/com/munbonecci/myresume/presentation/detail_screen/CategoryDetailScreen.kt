@@ -5,14 +5,23 @@ import android.util.Log
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.munbonecci.myresume.components.AppBar
 import com.munbonecci.myresume.domain.DataGenerator
 import com.munbonecci.myresume.ui.theme.MyResumeTheme
 
 @Composable
-fun CategoryDetailScreen(onBackButtonClicked: () -> Unit, type: String?, name: String?) {
+fun CategoryDetailScreen(
+    onBackButtonClicked: () -> Unit,
+    type: String = "0",
+    name: String?,
+    viewModel: CategoryDetailViewModel = hiltViewModel()
+) {
     val currentScreen = "Category"
+    viewModel.getCategorySelectedData(type.toIntOrNull() ?: 0)
+    val categoryDetailData = viewModel.uiCategoryDetailState.collectAsState()
 
     Scaffold(
         topBar = {
@@ -24,8 +33,8 @@ fun CategoryDetailScreen(onBackButtonClicked: () -> Unit, type: String?, name: S
         }
     ) { innerPadding ->
         Log.d("", innerPadding.toString())
-        type?.let {
-            when (it.toIntOrNull() ?: 0) {
+        type.let { categoryId ->
+            when (categoryId.toIntOrNull() ?: 0) {
                 DataGenerator.CATEGORY_CONTACT_INFO -> {
                     ContactInfo()
                 }
