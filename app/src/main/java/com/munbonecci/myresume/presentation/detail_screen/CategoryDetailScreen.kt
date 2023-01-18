@@ -49,7 +49,7 @@ fun CategoryDetailScreen(
                         SkillInfo(categoryDetailData.value.profile.skills)
                     }
                     DataGenerator.CATEGORY_TECH_STACK -> {
-                        TechnologyStackInfo()
+                        TechnologyStackInfo(categoryDetailData.value.profile.categoryTechData)
                     }
                     DataGenerator.CATEGORY_LANGUAGES -> {
                         LanguageInfo()
