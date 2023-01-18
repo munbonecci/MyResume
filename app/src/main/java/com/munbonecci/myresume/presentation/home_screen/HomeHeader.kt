@@ -131,7 +131,10 @@ private fun CustomInfoDialog(
                         modifier = Modifier.fillMaxWidth(),
                         onClick = {
                             showInfoDialog.value = false
-                            ContactInfoUtils.sendEmail(context)
+                            ContactInfoUtils.sendEmail(
+                                context,
+                                context.getString(R.string.contact_email)
+                            )
                         }
                     ) {
                         Text(text = stringResource(id = R.string.comments_feedback_here))

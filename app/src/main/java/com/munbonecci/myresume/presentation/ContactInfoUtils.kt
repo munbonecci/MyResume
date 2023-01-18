@@ -20,13 +20,13 @@ import com.munbonecci.myresume.R
 
 object ContactInfoUtils {
 
-    fun sendEmail(context: Context) {
+    fun sendEmail(context: Context, email: String) {
         runCatching {
             context.startActivity(Intent(Intent.ACTION_SENDTO).apply {
                 data = Uri.parse(MAIL_TO)
                 putExtra(
                     Intent.EXTRA_EMAIL,
-                    arrayOf(context.getString(R.string.contact_email))
+                    arrayOf(email)
                 )
                 putExtra(Intent.EXTRA_SUBJECT, APP_FEEDBACK)
             })

@@ -37,7 +37,7 @@ fun CategoryDetailScreen(
             id.let { categoryId ->
                 when (categoryId.toIntOrNull() ?: 0) {
                     DataGenerator.CATEGORY_CONTACT_INFO -> {
-                        ContactInfo()
+                        ContactInfo(categoryDetailData.value.profile.contacts)
                     }
                     DataGenerator.CATEGORY_EXPERIENCE -> {
                         ExperienceInfo()
