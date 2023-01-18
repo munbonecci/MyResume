@@ -52,7 +52,7 @@ fun CategoryDetailScreen(
                         TechnologyStackInfo(categoryDetailData.value.profile.categoryTechData)
                     }
                     DataGenerator.CATEGORY_LANGUAGES -> {
-                        LanguageInfo()
+                        LanguageInfo(categoryDetailData.value.profile.languages)
                     }
                 }
             }
