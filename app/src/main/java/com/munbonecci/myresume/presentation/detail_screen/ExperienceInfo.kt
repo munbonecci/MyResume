@@ -22,7 +22,6 @@ import com.munbonecci.myresume.components.ExpandableText
 import com.munbonecci.myresume.components.SpacerDimens
 import com.munbonecci.myresume.components.SpacerOrientation
 import com.munbonecci.myresume.data.model.ExperienceData
-import com.munbonecci.myresume.domain.DataGenerator
 import com.munbonecci.myresume.presentation.ContactInfoUtils
 import com.munbonecci.myresume.ui.theme.dimen_16dp
 import com.munbonecci.myresume.ui.theme.dimen_1dp
@@ -31,8 +30,7 @@ import com.munbonecci.myresume.ui.theme.dimen_3dp
 
 
 @Composable
-fun ExperienceInfo() {
-    val experienceInfoList = DataGenerator(LocalContext.current).experienceInfoDataList
+fun ExperienceInfo(experiences: List<ExperienceData> = arrayListOf()) {
     val context = LocalContext.current
 
     Column(
@@ -43,8 +41,8 @@ fun ExperienceInfo() {
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.Start
         ) {
-            items(experienceInfoList) { experienceInfo ->
-                ExperienceInfoItem(experienceInfo, onItemClick = { data ->
+            items(experiences) { experience ->
+                ExperienceInfoItem(experience, onItemClick = { data ->
                     if (data.companyURL.isNotEmpty()) {
                         ContactInfoUtils.openChromeTabs(context, data.companyURL)
                     }
