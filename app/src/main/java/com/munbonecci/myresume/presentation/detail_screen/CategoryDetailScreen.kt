@@ -46,7 +46,7 @@ fun CategoryDetailScreen(
                         EducationInfo(categoryDetailData.value.profile.categoryEducationData)
                     }
                     DataGenerator.CATEGORY_SKILLS -> {
-                        SkillInfo()
+                        SkillInfo(categoryDetailData.value.profile.skills)
                     }
                     DataGenerator.CATEGORY_TECH_STACK -> {
                         TechnologyStackInfo()
