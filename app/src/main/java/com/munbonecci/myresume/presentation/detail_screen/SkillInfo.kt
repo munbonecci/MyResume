@@ -24,7 +24,6 @@ import com.munbonecci.myresume.ui.theme.dimen_8dp
 
 @Composable
 fun SkillInfo(skills: List<SkillData> = arrayListOf()) {
-
     Column(
         modifier = Modifier
             .fillMaxSize()

@@ -20,7 +20,6 @@ import com.munbonecci.myresume.ui.theme.dimen_8dp
 
 @Composable
 fun LanguageInfo(languages: List<LanguageData> = arrayListOf()) {
-
     Column(
         modifier = Modifier
             .fillMaxSize()
