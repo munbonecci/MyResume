@@ -26,7 +26,7 @@ import com.munbonecci.myresume.components.ExpandableText
 import com.munbonecci.myresume.components.SpacerDimens.*
 import com.munbonecci.myresume.components.SpacerOrientation
 import com.munbonecci.myresume.data.model.EducationData
-import com.munbonecci.myresume.domain.DataGenerator
+import com.munbonecci.myresume.domain.model.CategoryEducationData
 import com.munbonecci.myresume.presentation.ContactInfoUtils
 import com.munbonecci.myresume.ui.theme.dimen_16dp
 import com.munbonecci.myresume.ui.theme.dimen_30dp
@@ -35,9 +35,9 @@ import com.munbonecci.myresume.ui.theme.dimen_5dp
 
 
 @Composable
-fun EducationInfo() {
-    val educationInfoList = DataGenerator(LocalContext.current).educationInfoDataList
-    val courseInfoList = DataGenerator(LocalContext.current).courseInfoDataList
+fun EducationInfo(categoryEducationData: CategoryEducationData = CategoryEducationData()) {
+    val educationInfoList = categoryEducationData.educationList
+    val courseInfoList = categoryEducationData.courseList
     val context = LocalContext.current
 
     Column(

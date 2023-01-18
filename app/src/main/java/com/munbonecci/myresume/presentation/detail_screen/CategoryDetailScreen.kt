@@ -43,7 +43,7 @@ fun CategoryDetailScreen(
                         ExperienceInfo(categoryDetailData.value.profile.experiences)
                     }
                     DataGenerator.CATEGORY_EDUCATION -> {
-                        EducationInfo()
+                        EducationInfo(categoryDetailData.value.profile.categoryEducationData)
                     }
                     DataGenerator.CATEGORY_SKILLS -> {
                         SkillInfo()
