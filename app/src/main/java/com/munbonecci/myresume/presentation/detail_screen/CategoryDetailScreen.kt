@@ -37,22 +37,22 @@ fun CategoryDetailScreen(
             id.let { categoryId ->
                 when (categoryId.toIntOrNull() ?: 0) {
                     DataGenerator.CATEGORY_CONTACT_INFO -> {
-                        ContactInfo(categoryDetailData.value.profile.contacts)
+                        ContactInfo(categoryDetailData.value.category.contacts)
                     }
                     DataGenerator.CATEGORY_EXPERIENCE -> {
-                        ExperienceInfo(categoryDetailData.value.profile.experiences)
+                        ExperienceInfo(categoryDetailData.value.category.experiences)
                     }
                     DataGenerator.CATEGORY_EDUCATION -> {
-                        EducationInfo(categoryDetailData.value.profile.categoryEducationData)
+                        EducationInfo(categoryDetailData.value.category.educationData)
                     }
                     DataGenerator.CATEGORY_SKILLS -> {
-                        SkillInfo(categoryDetailData.value.profile.skills)
+                        SkillInfo(categoryDetailData.value.category.skills)
                     }
                     DataGenerator.CATEGORY_TECH_STACK -> {
-                        TechnologyStackInfo(categoryDetailData.value.profile.categoryTechData)
+                        TechnologyStackInfo(categoryDetailData.value.category.techData)
                     }
                     DataGenerator.CATEGORY_LANGUAGES -> {
-                        LanguageInfo(categoryDetailData.value.profile.languages)
+                        LanguageInfo(categoryDetailData.value.category.languages)
                     }
                 }
             }

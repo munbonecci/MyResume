@@ -5,9 +5,9 @@ import com.munbonecci.myresume.data.model.*
 data class CategoryDetailData(
     val contacts: List<ContactInfoData> = listOf(),
     val experiences: List<ExperienceData> = listOf(),
-    val categoryEducationData: CategoryEducationData = CategoryEducationData(),
+    val educationData: CategoryEducationData = CategoryEducationData(),
     val skills: List<SkillData> = listOf(),
-    val categoryTechData: CategoryTechData = CategoryTechData(),
+    val techData: CategoryTechData = CategoryTechData(),
     val languages: List<LanguageData> = listOf()
 )
 

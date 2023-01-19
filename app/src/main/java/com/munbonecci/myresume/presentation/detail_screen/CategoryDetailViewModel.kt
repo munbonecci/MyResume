@@ -29,7 +29,7 @@ class CategoryDetailViewModel @Inject constructor(private val getCategoryDetailU
                 }
                 is Resource.Success -> {
                     result.data?.let { data ->
-                        _uiCategoryDetailState.value = CategoryDetailUIState(profile = data)
+                        _uiCategoryDetailState.value = CategoryDetailUIState(category = data)
                     }
                 }
             }

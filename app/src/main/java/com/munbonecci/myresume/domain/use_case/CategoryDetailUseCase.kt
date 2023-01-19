@@ -33,7 +33,7 @@ class CategoryDetailUseCase @Inject constructor(private val context: Context) {
                 emit(
                     Resource.Success(
                         CategoryDetailData(
-                            categoryEducationData = CategoryEducationData(
+                            educationData = CategoryEducationData(
                                 educationList = DataGenerator(context).educationInfoDataList,
                                 courseList = DataGenerator(context).courseInfoDataList
                             )
@@ -48,7 +48,7 @@ class CategoryDetailUseCase @Inject constructor(private val context: Context) {
                 emit(
                     Resource.Success(
                         CategoryDetailData(
-                            categoryTechData = CategoryTechData(
+                            techData = CategoryTechData(
                                 projects = DataGenerator(context).projectStackDataList,
                                 developmentStacks = DataGenerator(context).developmentStackDataList,
                                 androidTools = DataGenerator(context).androidToolsStackDataList,

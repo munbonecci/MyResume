@@ -4,6 +4,6 @@ import com.munbonecci.myresume.data.model.Error
 
 data class CategoryDetailUIState(
     val isLoading: Boolean = false,
-    val profile: CategoryDetailData = CategoryDetailData(),
+    val category: CategoryDetailData = CategoryDetailData(),
     val error: Error = Error()
 )
