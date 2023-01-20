@@ -1,9 +1,9 @@
 package com.munbonecci.myresume.presentation.home_screen
 
 import android.content.res.Configuration
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -25,34 +25,32 @@ fun HomeScreen(
 ) {
     val profileData by viewModel.uiProfileState.collectAsState()
 
-    Column(
+    LazyColumn(
         modifier = Modifier
             .fillMaxSize()
-            .padding(top = dimen_16dp, start = dimen_16dp, end = dimen_16dp)
+            .padding(start = dimen_16dp, end = dimen_16dp)
     ) {
-        HomeHeader()
-        CustomSpacer(
-            spacerDimens = SpacerDimens.MEDIUM
-        )
-        ProfileImage(
-            profileImage = profileData.profile.profileIcon,
-            imageDescription = profileData.profile.profileIconContentDescription,
-            profileDialogData = profileData.profile.profileDialogData
-        )
-        CustomSpacer(
-            spacerDimens = SpacerDimens.MEDIUM
-        )
-        ProfileInfo(
-            profileName = profileData.profile.profileName,
-            headline = profileData.profile.headline
-        )
-        CustomSpacer(
-            spacerDimens = SpacerDimens.MEDIUM
-        )
-        ProfileCategories(onCategoryButtonClicked, profileData)
-        CustomSpacer(
-            spacerDimens = SpacerDimens.MEDIUM
-        )
+        item {
+            HomeHeader()
+            CustomSpacer(spacerDimens = SpacerDimens.MEDIUM)
+            ProfileImage(
+                profileImage = profileData.profile.profileIcon,
+                imageDescription = profileData.profile.profileIconContentDescription,
+                profileDialogData = profileData.profile.profileDialogData
+            )
+            CustomSpacer(spacerDimens = SpacerDimens.MEDIUM)
+            ProfileInfo(
+                profileName = profileData.profile.profileName,
+                headline = profileData.profile.headline
+            )
+            CustomSpacer(spacerDimens = SpacerDimens.MEDIUM)
+            About(aboutInfo = profileData.profile.aboutInfo)
+            CustomSpacer(spacerDimens = SpacerDimens.SMALL)
+        }
+        this@LazyColumn.profileCategories(onCategoryButtonClicked, profileData)
+        item {
+            CustomSpacer(spacerDimens = SpacerDimens.MEDIUM)
+        }
     }
 }
 

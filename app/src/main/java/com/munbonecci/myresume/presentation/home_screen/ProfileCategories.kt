@@ -4,6 +4,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Card
@@ -27,31 +28,17 @@ import com.munbonecci.myresume.domain.model.ProfileUIState
 import com.munbonecci.myresume.ui.theme.dimen_16dp
 import com.munbonecci.myresume.ui.theme.dimen_20dp
 import com.munbonecci.myresume.ui.theme.dimen_4dp
-import com.munbonecci.myresume.ui.theme.dimen_8dp
 
-@Composable
-fun ProfileCategories(
+fun LazyListScope.profileCategories(
     onCategoryButtonClicked: (CategoryData) -> Unit,
     profileData: ProfileUIState
 ) {
     val categoryInfoList = profileData.profile.categories
 
-    LazyColumn(
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.Start,
-        modifier = Modifier.padding(bottom = dimen_8dp)
-    ) {
-        item {
-            About(aboutInfo = profileData.profile.aboutInfo)
-            CustomSpacer(
-                spacerDimens = SpacerDimens.SMALL
-            )
-        }
-        items(categoryInfoList) { categoryInfo ->
-            ProfileCategoryItem(categoryInfo, onItemClick = { data ->
-                onCategoryButtonClicked.invoke(data)
-            })
-        }
+    items(categoryInfoList) { categoryInfo ->
+        ProfileCategoryItem(categoryInfo, onItemClick = { data ->
+            onCategoryButtonClicked.invoke(data)
+        })
     }
 }
 
@@ -115,5 +102,11 @@ fun ProfileCategoryItem(categoryData: CategoryData, onItemClick: (CategoryData) 
 @Preview
 @Composable
 fun PreviewProfileCategories() {
-    ProfileCategories(onCategoryButtonClicked = {}, profileData = ProfileUIState())
+    LazyColumn(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(top = dimen_16dp, start = dimen_16dp, end = dimen_16dp)
+    ) {
+        profileCategories(onCategoryButtonClicked = {}, profileData = ProfileUIState())
+    }
 }
