@@ -19,7 +19,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.munbonecci.myresume.R
 import com.munbonecci.myresume.components.CustomSpacer
 import com.munbonecci.myresume.components.SpacerDimens
 import com.munbonecci.myresume.components.SpacerOrientation
@@ -32,8 +31,7 @@ import com.munbonecci.myresume.ui.theme.dimen_5dp
 
 
 @Composable
-fun ContactInfo() {
-    val contactInfoList = DataGenerator(LocalContext.current).contactInfoDataList
+fun ContactInfo(contacts: List<ContactInfoData> = arrayListOf()) {
     val context = LocalContext.current
 
     Column(
@@ -46,15 +44,15 @@ fun ContactInfo() {
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.Start
         ) {
-            items(contactInfoList) { contactInfo ->
+            items(contacts) { contactInfo ->
                 ContactInfoItem(contactInfo, onItemClick = { data ->
                     when (data.type) {
                         DataGenerator.EMAIL_TYPE -> {
-                            ContactInfoUtils.sendEmail(context)
+                            ContactInfoUtils.sendEmail(context, data.info)
                         }
                         DataGenerator.PHONE_TYPE -> {
                             ContactInfoUtils.makeCallOrSendWhatsAppMessage(
-                                context, context.getString(R.string.contact_phone)
+                                context, data.info
                             )
                         }
                         DataGenerator.WEB_VIEW_TYPE -> {

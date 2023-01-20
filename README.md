@@ -14,8 +14,8 @@ git clone https://github.com/munbonecci/MyResume.git
 
 ## Build variants
 
-Use the Android Studio *Build Variants* button to choose between **production** and **staging**
-flavors combined with debug and release build types
+Use the Android Studio *Build Variants* button to choose between **debug** and **release**
+flavors
 
 ## Maintainers
 
@@ -25,17 +25,19 @@ This project is maintained by:
 
 ## Architecture
 
-This App is based on the MVVM architecture and the Repository pattern and it has the approach in
-Clean Architecture where we can manage different layers.
+This App has the Clean Architecture approach where we can handle different layers,
+including use cases and view model to obtain the data
 
 ## Built with
 
-- [Kotlin](https://kotlinlang.org/) - For coding
+- [Kotlin](https://kotlinlang.org/) - For coding.
+- [Dagger Hilt](https://developer.android.com/training/dependency-injection/hilt-android) -For
+  dependency injection.
 - Jetpack
     - [Compose](https://developer.android.com/jetpack/compose?gclid=CjwKCAiAzKqdBhAnEiwAePEjkkbfP8b_r6c57F3jtdwOjxWpBbNOXVmpSnAUu4HKCid7KtSvfiiYeRoC1wYQAvD_BwE&gclsrc=aw.ds)
-      - Android’s recommended modern toolkit for building native UI.
+        - Android’s recommended modern toolkit for building native UI.
     - [Navigation Component](https://developer.android.com/guide/navigation/navigation-getting-started)
-      - Handling and manage the navigation in the app.
+        - Handling and manage the navigation in the app.
 
 ## How I run the app?
 

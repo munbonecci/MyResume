@@ -24,7 +24,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import com.munbonecci.myresume.R
-import com.munbonecci.myresume.data.model.ProfileDialogData
+import com.munbonecci.myresume.domain.model.ProfileDialogData
 import com.munbonecci.myresume.presentation.ContactInfoUtils
 import com.munbonecci.myresume.ui.theme.*
 

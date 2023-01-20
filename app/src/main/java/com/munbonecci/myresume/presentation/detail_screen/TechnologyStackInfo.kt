@@ -10,7 +10,6 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
@@ -20,22 +19,22 @@ import com.munbonecci.myresume.components.ExpandableText
 import com.munbonecci.myresume.components.SpacerDimens
 import com.munbonecci.myresume.components.SpacerOrientation
 import com.munbonecci.myresume.data.model.TechStackData
-import com.munbonecci.myresume.domain.DataGenerator
+import com.munbonecci.myresume.domain.model.CategoryTechData
 import com.munbonecci.myresume.ui.theme.*
 
 
 @Composable
-fun TechnologyStackInfo() {
-    val projectStackList = DataGenerator(LocalContext.current).projectStackDataList
-    val developmentStackList = DataGenerator(LocalContext.current).developmentStackDataList
-    val androidToolsStackList = DataGenerator(LocalContext.current).androidToolsStackDataList
-    val uiFrameworksStackList = DataGenerator(LocalContext.current).uiFrameworksStackDataList
-    val designToolsStackList = DataGenerator(LocalContext.current).designToolsStackDataList
-    val databaseStackList = DataGenerator(LocalContext.current).databaseStackDataList
-    val versionControlStackList = DataGenerator(LocalContext.current).versionControlStackDataList
-    val releaseStackList = DataGenerator(LocalContext.current).releaseStackDataList
-    val analyticsStackList = DataGenerator(LocalContext.current).analyticsStackDataList
-    val othersStackList = DataGenerator(LocalContext.current).othersStackDataList
+fun TechnologyStackInfo(categoryTechData: CategoryTechData = CategoryTechData()) {
+    val projectStackList = categoryTechData.projects
+    val developmentStackList = categoryTechData.developmentStacks
+    val androidToolsStackList = categoryTechData.androidTools
+    val uiFrameworksStackList = categoryTechData.uiFrameworks
+    val designToolsStackList = categoryTechData.designTools
+    val databaseStackList = categoryTechData.databases
+    val versionControlStackList = categoryTechData.versionControlStacks
+    val releaseStackList = categoryTechData.releases
+    val analyticsStackList = categoryTechData.analytics
+    val othersStackList = categoryTechData.others
 
     Column(
         modifier = Modifier

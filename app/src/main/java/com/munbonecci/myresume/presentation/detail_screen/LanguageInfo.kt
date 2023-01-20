@@ -9,21 +9,17 @@ import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment.Companion.Center
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import com.munbonecci.myresume.components.CircularProgressbar
 import com.munbonecci.myresume.components.CustomSpacer
 import com.munbonecci.myresume.components.SpacerDimens
 import com.munbonecci.myresume.components.SpacerOrientation
 import com.munbonecci.myresume.data.model.LanguageData
-import com.munbonecci.myresume.domain.DataGenerator
 import com.munbonecci.myresume.ui.theme.dimen_16dp
 import com.munbonecci.myresume.ui.theme.dimen_8dp
 
 @Composable
-fun LanguageInfo() {
-    val languageInfoList = DataGenerator(LocalContext.current).languageInfoDataList
-
+fun LanguageInfo(languages: List<LanguageData> = arrayListOf()) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -34,7 +30,7 @@ fun LanguageInfo() {
             verticalArrangement = Arrangement.spacedBy(dimen_16dp),
             horizontalArrangement = Arrangement.spacedBy(dimen_16dp)
         ) {
-            items(languageInfoList) { language ->
+            items(languages) { language ->
                 LanguageInfoItem(language, onItemClick = { data ->
                     Log.d("Language pressed: ", data.name)
                 })
