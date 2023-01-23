@@ -47,3 +47,4 @@ including use cases and view model to obtain the data
 - Run app in your emulator or physical device
 
 ![App Screens](app/app-images.png)
+![App Screens](app/app-images2.png)
