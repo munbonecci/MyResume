@@ -1,8 +1,10 @@
 <h1 align="center">MyResume</h1> 
 
 <p align="center">
-Android professional Resume app. This app was created to learn more about Android compose, 
+Android professional Resume app. This app was created to learn more about Android compose
 </p>
+
+![Home Screen](app/home_screen.png)
 
 ## Installation
 
