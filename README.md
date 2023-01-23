@@ -4,8 +4,6 @@
 Android professional Resume app. This app was created to learn more about Android compose
 </p>
 
-![Home Screen](app/home_screen.png)
-
 ## Installation
 
 Clone this repository and import into **Android Studio**
@@ -47,3 +45,5 @@ including use cases and view model to obtain the data
 - Open it in Android Studio
 - Wait until dependencies are installed
 - Run app in your emulator or physical device
+
+![App Screens](app/app-images.png)
