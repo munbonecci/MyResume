@@ -4,7 +4,7 @@
 Android professional Resume app. This app was created to learn more about Android compose
 </p>
 
-![Home Screen](app/home_screen.png)
+![App Screens](app/app-images.png)
 
 ## Installation
 
