@@ -58,7 +58,7 @@ class DataGenerator(private val currentContext: Context) {
         ),
     )
 
-    val categoryInfoDataList: List<CategoryData>
+    private val categoryInfoDataList: List<CategoryData>
         get() = listOf(
             CategoryData(
                 label = currentContext.getString(R.string.category_contact_info_label),
