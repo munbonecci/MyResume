@@ -13,6 +13,12 @@
     <string name="wizeline_academy_url">https://academy.wizeline.com</string>
     <string name="animation_degree">Wizeline Academy Android Animations Workshop</string>
     <string name="jetpack_degree">Wizeline Academy JetPack Compose 101 Workshop</string>
+    <string name="coursera_school">Coursera</string>
+    <string name="coursera_school_icon">Coursera icon</string>
+    <string name="meta_android_degree">Meta Android Developer certification</string>
+    <string name="meta_android_course_description">Launch your career as an Android app developer.
+        Build job-ready skills for an in-demand career and earn a credential from Meta.</string>
+    <string name="meta_android_course_url">https://coursera.org/share/1502391a5db5990578ecbd7bf8ccabbe</string>
     <string name="animation_course_description">Learn from experienced Wizeline engineers how to create animations through the native framework in an efficient way.</string>
     <string name="jetpack_course_description">Jetpack Compose is an important tool shaping the future of native mobile application development
         with Android. Learning this modern, powerful technology will help developers stay up to date and facilitate accelerated,
@@ -21,6 +27,8 @@
     <string name="android_course">Android Course</string>
     <string name="may_2022">May 2022</string>
     <string name="apr_2022">Apr 2022</string>
+    <string name="september_2022">Sep 2022</string>
+    <string name="february_2023">Feb 2023</string>
     <string name="education_school">School</string>
     <string name="education_course">Courses</string>
 </resources>

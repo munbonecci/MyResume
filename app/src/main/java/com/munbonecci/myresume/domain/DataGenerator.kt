@@ -58,7 +58,7 @@ class DataGenerator(private val currentContext: Context) {
         ),
     )
 
-    val categoryInfoDataList: List<CategoryData>
+    private val categoryInfoDataList: List<CategoryData>
         get() = listOf(
             CategoryData(
                 label = currentContext.getString(R.string.category_contact_info_label),
@@ -174,6 +174,19 @@ class DataGenerator(private val currentContext: Context) {
     )
 
     val courseInfoDataList = listOf(
+        EducationData(
+            school = currentContext.getString(R.string.coursera_school),
+            degree = currentContext.getString(R.string.meta_android_degree),
+            grade = "",
+            fieldOfStudy = currentContext.getString(R.string.android_course),
+            location = currentContext.getString(R.string.location_zapopan),
+            description = currentContext.getString(R.string.meta_android_course_description),
+            startDate = currentContext.getString(R.string.september_2022),
+            endDate = currentContext.getString(R.string.february_2023),
+            schoolURL = currentContext.getString(R.string.meta_android_course_url),
+            icon = R.drawable.coursera_icon,
+            iconContentDescription = currentContext.getString(R.string.coursera_school_icon)
+        ),
         EducationData(
             school = currentContext.getString(R.string.wizeline_academy_school),
             degree = currentContext.getString(R.string.animation_degree),
