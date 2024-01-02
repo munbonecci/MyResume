@@ -24,6 +24,12 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.StrokeCap
+import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.drawText
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.rememberTextMeasurer
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import com.munbonecci.myresume.ui.theme.dimen_300dp
 import com.munbonecci.myresume.ui.theme.dimen_46dp
@@ -57,6 +63,8 @@ fun CustomProgressBar(
     animationDuration: Int = 1000,
     animationDelay: Int = 0
 ) {
+    val textMeasurer = rememberTextMeasurer()
+
     var percentage by remember {
         mutableFloatStateOf(-1f)
     }
@@ -100,6 +108,23 @@ fun CustomProgressBar(
                 strokeWidth = size.height,
                 start = Offset(x = 0f, y = 0f),
                 end = Offset(x = progress, y = 0f)
+            )
+
+            val text = "$indicatorNumber%"
+            val textSize = textMeasurer.measure(text = AnnotatedString(text))
+            val textWidth = textSize.size.width
+            val xOffSet = ((size.width - textWidth) / 2)
+            val yOffSet = size.height / 10 - (textSize.size.height / 2)
+            drawText(
+                textMeasurer = textMeasurer,
+                text = text,
+                style = TextStyle(
+                    color = Color.White,
+                    fontSize = (size.height / 2).toSp(),
+                    textAlign = TextAlign.Center,
+                    fontWeight = FontWeight.Bold
+                ),
+                topLeft = Offset(x = xOffSet, y = yOffSet)
             )
         }
     }
