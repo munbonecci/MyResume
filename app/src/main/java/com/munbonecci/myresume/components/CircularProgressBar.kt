@@ -16,7 +16,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.State
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -48,7 +48,7 @@ fun CircularProgressbar(
     dataTextStyle: TextStyle = TextStyle(fontSize = 12.sp),
 ) {
     var dataUsageRemember by remember {
-        mutableStateOf(-1f)
+        mutableFloatStateOf(-1f)
     }
 
     val dataUsageAnimate = animateFloatAsState(
