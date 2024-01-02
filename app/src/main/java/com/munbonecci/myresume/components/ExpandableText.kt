@@ -32,10 +32,10 @@ const val DEFAULT_MINIMUM_TEXT_LINE = 3
  * @param fontStyle The FontStyle to apply to the text.
  * @param text The text to be displayed.
  * @param collapsedMaxLine The maximum number of lines to display when collapsed.
- * @param showMoreText The text to display for "Show More" link.
- * @param showMoreStyle The SpanStyle for "Show More" link.
- * @param showLessText The text to display for "Show Less" link.
- * @param showLessStyle The SpanStyle for "Show Less" link.
+ * @param showMoreText The text to display for "Show More" button.
+ * @param showMoreStyle The SpanStyle for "Show More" button.
+ * @param showLessText The text to display for "Show Less" button.
+ * @param showLessStyle The SpanStyle for "Show Less" button.
  * @param textAlign The alignment of the text.
  * @param fontSize The font size of the text.
  */
@@ -66,7 +66,7 @@ fun ExpandableText(
         }
         .then(modifier)
     ) {
-        // Text composable with buildAnnotatedString to handle "Show More" and "Show Less" links.
+        // Text composable with buildAnnotatedString to handle "Show More" and "Show Less" buttons.
         Text(
             modifier = textModifier
                 .fillMaxWidth()
@@ -74,11 +74,11 @@ fun ExpandableText(
             text = buildAnnotatedString {
                 if (clickable) {
                     if (isExpanded) {
-                        // Display the full text and "Show Less" link when expanded.
+                        // Display the full text and "Show Less" button when expanded.
                         append(text)
                         withStyle(style = showLessStyle) { append(showLessText) }
                     } else {
-                        // Display truncated text and "Show More" link when collapsed.
+                        // Display truncated text and "Show More" button when collapsed.
                         val adjustText = text.substring(startIndex = 0, endIndex = lastCharIndex)
                             .dropLast(showMoreText.length)
                             .dropLastWhile { Character.isWhitespace(it) || it == '.' }
