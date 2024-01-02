@@ -6,7 +6,11 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.LocalTextStyle
 import androidx.compose.material.Text
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextStyle
@@ -19,6 +23,22 @@ import androidx.compose.ui.unit.TextUnit
 
 const val DEFAULT_MINIMUM_TEXT_LINE = 3
 
+/**
+ * An expandable text component that provides access to truncated text with a dynamic ... Show More/Show Less button.
+ *
+ * @param modifier Modifier for the Box containing the text.
+ * @param textModifier Modifier for the Text composable.
+ * @param style The TextStyle to apply to the text.
+ * @param fontStyle The FontStyle to apply to the text.
+ * @param text The text to be displayed.
+ * @param collapsedMaxLine The maximum number of lines to display when collapsed.
+ * @param showMoreText The text to display for "Show More" link.
+ * @param showMoreStyle The SpanStyle for "Show More" link.
+ * @param showLessText The text to display for "Show Less" link.
+ * @param showLessStyle The SpanStyle for "Show Less" link.
+ * @param textAlign The alignment of the text.
+ * @param fontSize The font size of the text.
+ */
 @Composable
 fun ExpandableText(
     modifier: Modifier = Modifier,
@@ -34,15 +54,19 @@ fun ExpandableText(
     textAlign: TextAlign? = null,
     fontSize: TextUnit
 ) {
+    // State variables to track the expanded state, clickable state, and last character index.
     var isExpanded by remember { mutableStateOf(false) }
     var clickable by remember { mutableStateOf(false) }
     var lastCharIndex by remember { mutableStateOf(0) }
+
+    // Box composable containing the Text composable.
     Box(modifier = Modifier
         .clickable(clickable) {
             isExpanded = !isExpanded
         }
         .then(modifier)
     ) {
+        // Text composable with buildAnnotatedString to handle "Show More" and "Show Less" links.
         Text(
             modifier = textModifier
                 .fillMaxWidth()
@@ -50,9 +74,11 @@ fun ExpandableText(
             text = buildAnnotatedString {
                 if (clickable) {
                     if (isExpanded) {
+                        // Display the full text and "Show Less" link when expanded.
                         append(text)
                         withStyle(style = showLessStyle) { append(showLessText) }
                     } else {
+                        // Display truncated text and "Show More" link when collapsed.
                         val adjustText = text.substring(startIndex = 0, endIndex = lastCharIndex)
                             .dropLast(showMoreText.length)
                             .dropLastWhile { Character.isWhitespace(it) || it == '.' }
@@ -60,11 +86,14 @@ fun ExpandableText(
                         withStyle(style = showMoreStyle) { append(showMoreText) }
                     }
                 } else {
+                    // Display the full text when not clickable.
                     append(text)
                 }
             },
+            // Set max lines based on the expanded state.
             maxLines = if (isExpanded) Int.MAX_VALUE else collapsedMaxLine,
             fontStyle = fontStyle,
+            // Callback to determine visual overflow and enable click ability.
             onTextLayout = { textLayoutResult ->
                 if (!isExpanded && textLayoutResult.hasVisualOverflow) {
                     clickable = true
@@ -76,5 +105,4 @@ fun ExpandableText(
             fontSize = fontSize
         )
     }
-
 }
