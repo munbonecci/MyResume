@@ -51,6 +51,16 @@ fun AnimatedProgressBar(indicatorProgress: Int) {
     }
 }
 
+/**
+ * A custom progress bar that displays a linear progress with a customizable indicator.
+ *
+ * @param indicatorNumber The numeric value representing the progress percentage.
+ * @param backgroundIndicatorColor The color of the background indicator.
+ * @param indicatorPadding The padding around the progress indicator.
+ * @param gradientColors The list of colors to be used for the gradient of the progress indicator.
+ * @param animationDuration The duration of the animation for the progress indicator.
+ * @param animationDelay The delay before starting the animation for the progress indicator.
+ */
 @Composable
 fun CustomProgressBar(
     indicatorNumber: Int,
@@ -63,12 +73,15 @@ fun CustomProgressBar(
     animationDuration: Int = 1000,
     animationDelay: Int = 0
 ) {
+    // Remember the text measurer to optimize text measurement performance.
     val textMeasurer = rememberTextMeasurer()
 
+    // State to animate the progress indicator.
     var percentage by remember {
         mutableFloatStateOf(-1f)
     }
 
+    // Animate the progress number.
     val animateNumber = animateFloatAsState(
         targetValue = percentage,
         animationSpec = tween(
@@ -77,21 +90,25 @@ fun CustomProgressBar(
         ), label = ""
     )
 
+    // Trigger the LaunchedEffect to start the animation when the composable is first launched.
     LaunchedEffect(Unit) {
         percentage = indicatorNumber.toFloat()
     }
 
+    // Composable Box to contain the Canvas drawing and text.
     Box(
         modifier = Modifier
             .height(dimen_300dp)
             .fillMaxWidth()
     ) {
+        // Canvas drawing for the progress indicator.
         Canvas(
             modifier = Modifier
                 .fillMaxWidth()
                 .height(dimen_300dp)
                 .padding(start = indicatorPadding, end = indicatorPadding)
         ) {
+            // Draw the background indicator.
             drawLine(
                 color = backgroundIndicatorColor,
                 cap = StrokeCap.Round,
@@ -99,9 +116,9 @@ fun CustomProgressBar(
                 start = Offset(x = 0f, y = 0f),
                 end = Offset(x = size.width, y = 0f)
             )
-            val progress =
-                (animateNumber.value / 100) * size.width
 
+            // Calculate and draw the progress indicator.
+            val progress = (animateNumber.value / 100) * size.width
             drawLine(
                 brush = Brush.linearGradient(colors = gradientColors),
                 cap = StrokeCap.Round,
@@ -110,6 +127,7 @@ fun CustomProgressBar(
                 end = Offset(x = progress, y = 0f)
             )
 
+            // Draw the progress number in the middle.
             val text = "$indicatorNumber%"
             val textSize = textMeasurer.measure(text = AnnotatedString(text))
             val textWidth = textSize.size.width
