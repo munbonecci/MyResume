@@ -15,19 +15,28 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.munbonecci.myresume.R
 
+/**
+ * A customizable [TopAppBar] for the application.
+ *
+ * @param modifier Modifier for styling or positioning the [TopAppBar].
+ * @param currentScreen The title to be displayed on the app bar.
+ * @param showBackButton Flag indicating whether the back navigation button should be shown.
+ * @param onBackButtonClick Callback for the back navigation button click event.
+ */
 @Composable
-fun AppBar(
+fun CustomTopAppBar(
     modifier: Modifier = Modifier,
     currentScreen: String = "",
-    canNavigateBack: Boolean = true,
-    navigateUp: () -> Unit
+    showBackButton: Boolean = true,
+    onBackButtonClick: () -> Unit
 ) {
     TopAppBar(
         title = { Text(currentScreen) },
         modifier = modifier,
         navigationIcon = {
-            if (canNavigateBack) {
-                IconButton(onClick = navigateUp) {
+            if (showBackButton) {
+                // Show back navigation button if allowed
+                IconButton(onClick = onBackButtonClick) {
                     Icon(
                         imageVector = Icons.Filled.ArrowBack,
                         tint = Color.White,
@@ -39,9 +48,13 @@ fun AppBar(
     )
 }
 
+/**
+ * A preview function for [CustomTopAppBar].
+ */
 @Preview
 @Composable
-fun PreviewAppBar() {
+fun PreviewCustomTopAppBar() {
+    // Example usage with navigation controller
     val navController: NavHostController = rememberNavController()
-    AppBar(navigateUp = { navController.navigateUp() })
+    CustomTopAppBar(onBackButtonClick = { navController.navigateUp() })
 }

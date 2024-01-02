@@ -8,7 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.munbonecci.myresume.components.AppBar
+import com.munbonecci.myresume.components.CustomTopAppBar
 import com.munbonecci.myresume.domain.DataGenerator
 import com.munbonecci.myresume.ui.theme.MyResumeTheme
 
@@ -26,10 +26,10 @@ fun CategoryDetailScreen(
 
         Scaffold(
             topBar = {
-                AppBar(
+                CustomTopAppBar(
                     currentScreen = name ?: currentScreen,
-                    canNavigateBack = true,
-                    navigateUp = { onBackButtonClicked.invoke() }
+                    showBackButton = true,
+                    onBackButtonClick = { onBackButtonClicked.invoke() }
                 )
             }
         ) { innerPadding ->
